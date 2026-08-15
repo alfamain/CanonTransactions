@@ -1,0 +1,95 @@
+{
+  "evidence_status": "offline_plan_only",
+  "checkpoints": [
+    {
+      "stage_id": "01",
+      "revision": "fixture:claim",
+      "goal": "claim",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": false,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "02",
+      "revision": "fixture:provisional-cold",
+      "goal": "provisional cold",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": true,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "03",
+      "revision": "fixture:correction",
+      "goal": "correction",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": false,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "04",
+      "revision": "fixture:corrected-cold",
+      "goal": "corrected cold",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": true,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "05",
+      "revision": "fixture:conflict",
+      "goal": "conflict",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": false,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "06",
+      "revision": "fixture:human-resolution",
+      "goal": "human resolution",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": true,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "07",
+      "revision": "fixture:canonical-cold",
+      "goal": "canonical cold",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": false,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "08",
+      "revision": "fixture:revocation",
+      "goal": "revocation",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": true,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "09",
+      "revision": "fixture:revoked-cold",
+      "goal": "revoked cold",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": false,
+      "outcome": "pending_live_receipt"
+    },
+    {
+      "stage_id": "10",
+      "revision": "fixture:replay-invariants",
+      "goal": "replay invariants",
+      "prompt_version": "pending-live",
+      "runtime": "pending-live",
+      "cold_recall": true,
+      "outcome": "pending_live_receipt"
+    }
+  ]
+}

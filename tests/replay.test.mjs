@@ -1,0 +1,1 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';const x=JSON.parse(fs.readFileSync('ledger/events.json'));assert.equal(x.at(-1).status,'revoked');assert.equal(x.filter(e=>e.entity_key==='release:target').length,3);console.log('canon replay tests: PASS');

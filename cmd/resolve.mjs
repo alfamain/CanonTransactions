@@ -1,0 +1,1 @@
+import fs from 'node:fs';const x=JSON.parse(fs.readFileSync('ledger/events.json'));const last=x.at(-1);console.log(last.status==='revoked'?`CANON: revoked — ${last.entity_key}`:`CANON: resolved — ${last.value}`);if(last.status!=='revoked')process.exit(1);

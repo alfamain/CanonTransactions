@@ -1,0 +1,1 @@
+[{"entity_key":"release:target","status":"claim","value":"staging","effective_at":"2026-08-15T10:00:00Z"},{"entity_key":"release:target","status":"corrected","value":"mainnet","effective_at":"2026-08-15T10:05:00Z","supersedes":"claim"},{"entity_key":"release:target","status":"revoked","value":"mainnet","effective_at":"2026-08-15T10:10:00Z","supersedes":"corrected"}]
