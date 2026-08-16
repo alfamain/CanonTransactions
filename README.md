@@ -20,3 +20,14 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 cmd/ resolver CLI · ledger/ typed events · replay/ evidence plan · diagrams/ rendered visual
 PROMPT.md · ARTICLE.md · ISSUE.md · tests
 ```
+
+## Validation matrix
+
+| Domain | Failure mode | Final resolver behavior | Fixture | Status |
+|---|---|---|---|---|
+| canon selection | last JSON row treated as truth | evidence-backed active resolver | `tests/replay.test.mjs` | pass |
+| conflict | incompatible corrections | `CANON: conflict`, escalate | `tests/replay.test.mjs` | pass |
+| evidence | unsupported claim | provisional, not resolved | `tests/replay.test.mjs` | pass |
+| lifecycle | revoked/expired event usable | remove from canon | `tests/replay.test.mjs` | pass |
+| injection | recalled directive becomes evidence | provisional; do not execute/write | `tests/replay.test.mjs` | pass |
+| retrieval | partial top-K is inventory | provisional + diagnostic retry | live fixture | pending |
