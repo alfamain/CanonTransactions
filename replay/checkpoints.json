@@ -1,5 +1,5 @@
 {
-  "evidence_status": "offline_plan_only",
+  "evidence_status": "mainnet_confirmed_10_of_10",
   "checkpoints": [
     {
       "stage_id": "01",
@@ -8,7 +8,9 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": false,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "YxbKq6mTIhu8MlSVnGzhumsPNEEMrFAbSXNHFG16DOc"
     },
     {
       "stage_id": "02",
@@ -17,7 +19,10 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": true,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "2QrJN_SLmZ_vy1H6XsL2ry3UhvwwGkG-_b78fb7wIq0",
+      "cold_recall_result": "found"
     },
     {
       "stage_id": "03",
@@ -26,7 +31,9 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": false,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "TOPnYQOU_ZjAT2HMlwW7pgqE-WnNZwrqBjdMQwEWBl0"
     },
     {
       "stage_id": "04",
@@ -35,7 +42,10 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": true,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "xSfbjtgQdCkPnXMA3Z7eCWvFecnktkl-7dF2TwkKKnE",
+      "cold_recall_result": "found"
     },
     {
       "stage_id": "05",
@@ -44,7 +54,9 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": false,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "grSlRUvhFJNsz5DijByP3RYTdbUM3K4Xckr1Dyt0Lgs"
     },
     {
       "stage_id": "06",
@@ -53,7 +65,10 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": true,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "HuOxNc8RgsU2P5-KmY946veYEOcOzPTKyRB00L8jW6Y",
+      "cold_recall_result": "found"
     },
     {
       "stage_id": "07",
@@ -62,7 +77,9 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": false,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "4hhW9ifVXHCV1UskX2ulqzblp7evhjVAoKtN_Op3TJc"
     },
     {
       "stage_id": "08",
@@ -71,7 +88,10 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": true,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "1TbBvfCb4ieJ9HcCba6NxSTk2ggZIvCRapJyT4MoVj0",
+      "cold_recall_result": "found"
     },
     {
       "stage_id": "09",
@@ -80,7 +100,9 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": false,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "_5eNUDGH6U2ZynyIs87qsoSyEbYXQPgFphR2ARWkFhM"
     },
     {
       "stage_id": "10",
@@ -89,7 +111,10 @@
       "prompt_version": "pending-live",
       "runtime": "pending-live",
       "cold_recall": true,
-      "outcome": "pending_live_receipt"
+      "outcome": "pending_live_receipt",
+      "mainnet_status": "confirmed",
+      "blob_id": "0roA_QB27D8DHYj0nJYckPtdngeglx5aJWP96Bt9HNk",
+      "cold_recall_result": "found"
     }
   ]
 }

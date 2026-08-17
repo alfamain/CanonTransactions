@@ -1,0 +1,117 @@
+{
+  "status": "confirmed_mainnet_evidence",
+  "network": "mainnet",
+  "project": "Canon Transactions",
+  "confirmed_stage_count": 10,
+  "receipt_rule": "A checkpoint is counted only after MemWal rememberAndWait returns terminal completion with a non-empty blob_id. Job IDs are diagnostic metadata, not storage proof.",
+  "runs": [
+    {
+      "namespace": "walrus-session7/canon-transactions/alfamain/mainnet-evidence-v2",
+      "health": {
+        "status": "ok",
+        "version": "0.1.0"
+      },
+      "finished_at": "2026-08-17T23:01:47.299Z"
+    },
+    {
+      "namespace": "walrus-session7/canon-transactions/alfamain/mainnet-evidence-v3",
+      "health": {
+        "status": "ok",
+        "version": "0.1.0"
+      },
+      "finished_at": "2026-08-17T23:11:15.023Z"
+    }
+  ],
+  "receipts": [
+    {
+      "stage_id": "01",
+      "job_id": "bcafcf33-b549-426e-b71a-e8351d771d34",
+      "blob_id": "YxbKq6mTIhu8MlSVnGzhumsPNEEMrFAbSXNHFG16DOc",
+      "idempotency_key_sha256": "bf605beb91ff6f0d4637b69cd0c21076b72e37131610e4dc506a3c1770d1afb6",
+      "started_at": "2026-08-17T22:57:00.090Z"
+    },
+    {
+      "stage_id": "02",
+      "job_id": "13efaccc-c282-49e1-8865-a773dc023c55",
+      "blob_id": "2QrJN_SLmZ_vy1H6XsL2ry3UhvwwGkG-_b78fb7wIq0",
+      "idempotency_key_sha256": "d5f16cbd6182e95b9432ff4cd4490001da15aa21f25914e47f15fb797635fa82",
+      "started_at": "2026-08-17T22:57:41.319Z",
+      "cold_recall": {
+        "status": "found",
+        "result_count": 2
+      }
+    },
+    {
+      "stage_id": "03",
+      "job_id": "b42fe3cb-2fa0-4091-9b01-c56b3e272307",
+      "blob_id": "TOPnYQOU_ZjAT2HMlwW7pgqE-WnNZwrqBjdMQwEWBl0",
+      "idempotency_key_sha256": "2b78b1e851304f4aa186537664eb18091581e80ee128e8090e3a7da60dffb5c8",
+      "started_at": "2026-08-17T22:58:13.624Z"
+    },
+    {
+      "stage_id": "04",
+      "job_id": "42230623-bf2e-4674-a730-e816c54682aa",
+      "blob_id": "xSfbjtgQdCkPnXMA3Z7eCWvFecnktkl-7dF2TwkKKnE",
+      "idempotency_key_sha256": "b8fd192fe0176436eb3316b4c86ad27e78f3d5eb30b13ce9c9a06303c7d7045e",
+      "started_at": "2026-08-17T22:58:45.300Z",
+      "cold_recall": {
+        "status": "found",
+        "result_count": 4
+      }
+    },
+    {
+      "stage_id": "05",
+      "job_id": "43d29abc-5c27-4446-9cb2-dfe46645a986",
+      "blob_id": "grSlRUvhFJNsz5DijByP3RYTdbUM3K4Xckr1Dyt0Lgs",
+      "idempotency_key_sha256": "7fbc3eb722b6c5ce5a76fda802adeb2c13f75493c240c9a749837150d5e49101",
+      "started_at": "2026-08-17T22:59:22.719Z"
+    },
+    {
+      "stage_id": "06",
+      "job_id": "5400d89c-c93f-4cb0-b6a0-c0701a6975ec",
+      "blob_id": "HuOxNc8RgsU2P5-KmY946veYEOcOzPTKyRB00L8jW6Y",
+      "idempotency_key_sha256": "5201049b4459df4aa5573424063e6f6cbec75c5f4679346667bfd9b971a59eb5",
+      "started_at": "2026-08-17T22:59:44.867Z",
+      "cold_recall": {
+        "status": "found",
+        "result_count": 6
+      }
+    },
+    {
+      "stage_id": "07",
+      "job_id": "b07130bc-ea1d-4260-bf22-c366a0bee143",
+      "blob_id": "4hhW9ifVXHCV1UskX2ulqzblp7evhjVAoKtN_Op3TJc",
+      "idempotency_key_sha256": "364e47edcc1d7078133c9ccdb8b64fc199c65ccb74ee32eec6943a7408b96e78",
+      "started_at": "2026-08-17T23:00:16.852Z"
+    },
+    {
+      "stage_id": "08",
+      "job_id": "835b6527-e7ca-49e4-8e55-ebd22fb89fc0",
+      "blob_id": "1TbBvfCb4ieJ9HcCba6NxSTk2ggZIvCRapJyT4MoVj0",
+      "idempotency_key_sha256": "237f75c2a7c0e82f05d9a0d982b2705d75d61744c8426136fbe8005d1d81a25a",
+      "started_at": "2026-08-17T23:09:10.083Z",
+      "cold_recall": {
+        "status": "found",
+        "result_count": 1
+      }
+    },
+    {
+      "stage_id": "09",
+      "job_id": "93030d3c-cf28-467c-a6d7-bc58f5702efa",
+      "blob_id": "_5eNUDGH6U2ZynyIs87qsoSyEbYXQPgFphR2ARWkFhM",
+      "idempotency_key_sha256": "889604fb1b3a3cb641161f1cccde1cf4d736c3489db90aa3fea9d53b7dc4af55",
+      "started_at": "2026-08-17T23:10:05.818Z"
+    },
+    {
+      "stage_id": "10",
+      "job_id": "64d3efee-70e1-4dff-bc97-6ff9e6c66ca5",
+      "blob_id": "0roA_QB27D8DHYj0nJYckPtdngeglx5aJWP96Bt9HNk",
+      "idempotency_key_sha256": "949a262c9e5de96ad1c8a65f9ee29514130195456a68e559ef038b6ab9af7918",
+      "started_at": "2026-08-17T23:10:48.992Z",
+      "cold_recall": {
+        "status": "found",
+        "result_count": 3
+      }
+    }
+  ]
+}
