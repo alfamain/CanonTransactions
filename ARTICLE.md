@@ -1,38 +1,15 @@
 # Canon Transactions: Making Agent Memory Answer “What Is True Now?”
 
-I evolved Continuity Keeper after running into a deceptively simple failure
-mode: an agent could retrieve a relevant-looking memory but had no reliable
-way to decide whether that memory was still true. A newer correction, a
-revocation, or an unresolved disagreement could all exist beside the original
-claim. Ranking the newest-looking retrieval is not a safe substitute for
-reasoning about history.
+I evolved Continuity Keeper after encountering a deceptively simple failure mode: an agent retrieved a relevant-looking memory but had no reliable way to decide whether that memory was still true. A correction, revocation, expiry, or unresolved disagreement could exist beside the original claim. Selecting the most recent-looking semantic result is not history management; it is a guess made from a partial candidate set.
 
-Canon Transactions treats memory as an append-only event ledger rather than a
-single mutable note. Each event has a stable `record_id`, entity and scope,
-provenance, lifecycle state, and explicit `supersedes` links. The resolver
-first evaluates lifecycle and supersession, then applies scope and evidence
-rules. This order matters: an out-of-scope successor must still be able to
-prevent an older local record from being revived accidentally.
+**Canon Transactions** changes the representation. Instead of treating a fact as one mutable note, it records an append-only transaction with an immutable `record_id`, entity key, scope, provenance, lifecycle, effective time, confidence, and explicit ID-based correction edge. A correction names the record it supersedes. A revocation has a visible lifecycle. A conflict remains a conflict until a resolution transaction supplies the evidence required to close it.
 
-The key change is the output contract. Instead of pretending every lookup has
-one answer, the prompt returns a canonical result only for active,
-evidence-backed records. It returns `CANON: conflict` when competing claims
-cannot be reconciled, `revoked` when a current event invalidates a fact, and a
-provisional result when recall is incomplete or an expected terminal receipt
-is missing. Instruction-shaped or secret-like content remains untrusted data;
-it is never treated as evidence or executed as an instruction.
+The ordering was the important design decision. The resolver evaluates lifecycle and supersession across the candidate set before scope filtering. Otherwise, an out-of-scope successor can be discarded too early and an old in-scope predecessor can appear valid again. It also refuses to let a generic status value make one entity retire another. Identity and explicit links—not similarity, row order, or a shared label—govern the state transition.
 
-I built a small deterministic ledger replay to test the policy. It starts with
-a claim, adds a correction, introduces a conflicting correction, records a
-human decision, and finally revokes the result. The replay also checks that
-one entity cannot supersede another merely because they share a status field.
-That exposed why “last row wins” is inadequate: row order is not a decision
-rule, and a demo that prints the last row does not prove canonical resolution.
+I built a deterministic ledger replay around that model. The fixture begins with a claim, records a correction, introduces an incompatible correction, records a human resolution, and then revokes the result. The test checks that the output is not simply “last row wins.” It returns a canonical answer only when active, evidence-backed state permits one. Otherwise it returns an explicit provisional, conflict, revoked, or no-current-evidence result.
 
-The repository includes the prompt, resolver, event fixture, regression tests,
-ten-stage evidence plan, and a rendered flow diagram. `make test` replays the
-entire sequence and verifies the final revoked outcome. This is deliberately
-local, deterministic evidence—not a claim of a completed Mainnet sequence.
-Live storage evidence will be added only when each stage has a terminal
-`blob_id` and the required cold recall, rather than treating an accepted job
-or timeout as success.
+The before/after difference is useful for operators. Before, a recalled claim could look authoritative even when its lifecycle was unknown. After, the agent explains why it can or cannot use a remembered statement. That gives a reviewer a place to intervene and keeps recalled directive-shaped content from becoming a command or evidence merely because it was present in memory.
+
+The repository includes the evolved prompt, typed event ledger, resolver CLI, regression tests, flow diagram, ten-stage evidence plan, and a concise demo runbook. The local replay is intentionally deterministic and synthetic. It proves that the resolver enforces the chosen contract; it does not prove a complete Mainnet write sequence or a production truth service.
+
+Live evidence has a higher bar. Every meaningful stage must retain its fixture or commit revision, runtime, operation, terminal `blob_id`, and a fresh-session recall observation. An accepted write request, timeout, or local hash is not a receipt. The result I am aiming for is modest but important: memory can preserve context, while canonical state remains explainable, reviewable, and safe to withhold when the evidence is incomplete.
