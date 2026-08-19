@@ -14,6 +14,7 @@ assert.equal(resolve([b],{project:'p',scope:'s'}).status,'resolved');
 assert.equal(resolve([{...b,status:'conflict'}],{project:'p',scope:'s'}).status,'conflict');
 assert.equal(resolve([{...b,evidence:''}],{project:'p',scope:'s'}).status,'provisional');
 assert.equal(resolve([{...b,expires_at:'2020-01-01T00:00:00Z'}],{project:'p',scope:'s'}).status,'provisional');
+assert.equal(resolve([{...b,expires_at:'2020-01-01T00:00:00Z'}],{project:'p',scope:'s'}).reason,'no-current-scoped-evidence','expired-only recall has no current evidence');
 assert.equal(resolve([
   {...b,record_id:'x@1',status:'corrected'},
   {...b,record_id:'x@2',status:'superseded',effective_at:'2026-08-16T00:00:00Z',supersedes:'x@1'},
@@ -30,7 +31,7 @@ assert.equal(resolve([],{project:'p',scope:'s'}).reason,'empty-or-invalid-recall
 assert.equal(resolve([
   {...b,record_id:'x@1',status:'claim',effective_at:'2026-08-14T00:00:00Z'},
   {...b,record_id:'x@2',project:'other',status:'revoked',effective_at:'2026-08-15T00:00:00Z',supersedes:'x@1'}
-],{project:'p',scope:'s'}).status,'revoked','out-of-scope successor cannot revive prior claim');
+],{project:'p',scope:'s'}).status,'provisional','out-of-scope successor cannot revive prior claim or revoke the requested canon');
 // A supersession on one entity must not retire another entity merely because
 // both happen to be in lifecycle state `claim`.
 assert.equal(resolve([
@@ -38,5 +39,11 @@ assert.equal(resolve([
   {...b,record_id:'b@1',entity_key:'b',status:'claim'},
   {...b,record_id:'a@2',entity_key:'a',status:'corrected',supersedes:'a@1'},
 ],{project:'p',scope:'s'}).events.map(e=>e.entity_key).includes('b'),true,'record IDs prevent cross-entity supersession');
+// A revocation is current only for its own requested scope. It cannot poison
+// canon resolution for an unrelated entity in the same recalled top-K set.
+assert.equal(resolve([
+  {...b,record_id:'a@1',entity_key:'a',status:'revoked'},
+  {...b,record_id:'b@1',entity_key:'b',status:'resolved'},
+],{project:'p',scope:'s'}).status,'resolved','unrelated revocation must not globally revoke canon');
 
 console.log('canon replay tests: PASS');

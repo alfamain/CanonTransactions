@@ -35,14 +35,17 @@ export function resolve(events,scope={}){
   const current=[...byKey.values()].map(rows=>
     rows.slice().sort((a,b)=>Date.parse(b.effective_at)-Date.parse(a.effective_at))[0]);
 
-  if(current.some(e=>e.status==='revoked'))
-    return {status:'revoked',reason:'current-event-revoked',events:current.filter(e=>e.status==='revoked')};
-
   const inScope=current.filter(e=>(!scope.project||e.project===scope.project)&&(!scope.scope||e.scope===scope.scope));
   if(!inScope.length)return {status:'provisional',reason:'no-current-scoped-evidence'};
-  if(inScope.some(e=>e.status==='conflict'))return {status:'conflict',reason:'explicit-conflict'};
-  if(inScope.some(e=>!e.evidence||e.confidence!=='high'))return {status:'provisional',reason:'ungrounded-current-event'};
-  return {status:'resolved',events:inScope};
+  const revoked=inScope.filter(e=>e.status==='revoked');
+  const usable=inScope.filter(e=>e.status!=='revoked');
+  // A recalled top-K can include several entities. A revocation applies to
+  // its own entity only; it may not erase another entity's current canon.
+  if(!usable.length&&revoked.length)
+    return {status:'revoked',reason:'current-event-revoked',events:revoked};
+  if(usable.some(e=>e.status==='conflict'))return {status:'conflict',reason:'explicit-conflict'};
+  if(usable.some(e=>!e.evidence||e.confidence!=='high'))return {status:'provisional',reason:'ungrounded-current-event'};
+  return {status:'resolved',events:usable,revoked};
 }
 
 if(process.argv[1]&&process.argv[1].endsWith('resolve.mjs')){
