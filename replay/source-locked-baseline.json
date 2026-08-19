@@ -1,0 +1,10 @@
+{
+  "source_repository": "https://github.com/yukitran03/continuity-keeper",
+  "source_revision": "522694d5ba0fd32b7fcf5765322c495c3295327f",
+  "source_path": "prompt/continuity-keeper.md",
+  "source_sha256": "cff58abecfe2c2fa485a87fc46b3bb7e7529fd1f0c56781e3955a0d1e6007e88",
+  "fixture": "two active corrections for one canon entity",
+  "observed_contract": "Recall story canon, surface a draft contradiction, and use the supersede CLI when canon changes.",
+  "baseline_result": "no-typed-event-arbitration-contract",
+  "boundary": "Static source-contract replay; it does not claim a live fiction agent selected a wrong canon."
+}

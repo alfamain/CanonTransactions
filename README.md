@@ -14,6 +14,8 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 
 [`replay/checkpoints.json`](./replay/checkpoints.json) has ten distinct stages: claim, provisional canon, correction, cold resolution, conflict/escalation, human resolution, canonical recall, revocation, cold verification, replay invariants. The committed [`replay/mainnet-receipts.json`](./replay/mainnet-receipts.json) records **10/10 terminal Mainnet receipts** and fresh-client cold recalls for stages 02, 04, 06, 08, and 10. The local replay remains a separate deterministic proof.
 
+The unchanged-source comparison is pinned in [`replay/source-locked-baseline.json`](./replay/source-locked-baseline.json): Continuity Keeper revision `522694d…`, source file SHA-256 `cff58abe…`. Its fiction-canon workflow can recall and supersede facts, but does not define typed multi-event arbitration. This is a static contract comparison, not an assertion about a live model's behavior.
+
 ## Structure
 
 ```text
