@@ -1,5 +1,8 @@
 # Canon Transactions: Making Agent Memory Answer “What Is True Now?”
 
+> **Publication status: owner-review draft.** First-person voice and factual
+> claims require adoption and approval by Alfa Main before publication.
+
 I evolved Continuity Keeper after encountering a deceptively simple failure mode: an agent retrieved a relevant-looking memory but had no reliable way to decide whether that memory was still true. A correction, revocation, expiry, or unresolved disagreement could exist beside the original claim. Selecting the most recent-looking semantic result is not history management; it is a guess made from a partial candidate set.
 
 **Canon Transactions** changes the representation. Instead of treating a fact as one mutable note, it records an append-only transaction with an immutable `record_id`, entity key, scope, provenance, lifecycle, effective time, confidence, and explicit ID-based correction edge. A correction names the record it supersedes. A revocation has a visible lifecycle. A conflict remains a conflict until a resolution transaction supplies the evidence required to close it.
