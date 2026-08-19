@@ -8,7 +8,7 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 
 ## Local proof
 
-`make test` replays a ledger: an initial claim is corrected, a conflicting correction is escalated, a human resolution is recorded, and a later revocation removes the fact from canon. `make demo` is the read-only judge path: it shows lineage resolution, a conflict result, and a separate committed-receipt-board summary. The fixture is synthetic; it does not claim a production record or a new Mainnet write.
+`make test` replays a ledger: an initial claim is corrected, a conflicting correction is escalated, a human resolution is recorded, and a later revocation removes the fact from canon. `make demo` is the read-only judge path: it shows lineage resolution, explicit conflict, named no-current-evidence and invalid-schema branches, and a separate committed-receipt-board summary. The fixture is synthetic; it does not claim a production record or a new Mainnet write.
 
 ## Evidence standard
 
@@ -28,6 +28,7 @@ PROMPT.md · ARTICLE.md · ISSUE.md · tests
 | canon selection | last JSON row treated as truth | evidence-backed active resolver | `tests/replay.test.mjs` | pass |
 | conflict | incompatible corrections | `CANON: conflict`, escalate | `tests/replay.test.mjs` | pass |
 | evidence | unsupported claim | provisional, not resolved | `tests/replay.test.mjs` | pass |
+| reason precision | expiry/schema/recall gaps collapsed into vague failure states | named `no-current-evidence`, `invalid-event-schema`, and `recall-integrity-unknown` reasons | `tests/replay.test.mjs` | pass |
 | lifecycle | revoked/expired event usable | remove from canon | `tests/replay.test.mjs` | pass |
 | revocation isolation | unrelated entity revocation poisoned the recalled set | apply revocation per entity, not globally | `tests/replay.test.mjs` | pass |
 | injection | recalled directive becomes evidence | provisional; do not execute/write | `tests/replay.test.mjs` | pass |

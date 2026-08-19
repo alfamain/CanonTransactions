@@ -14,7 +14,7 @@ assert.equal(resolve([b],{project:'p',scope:'s'}).status,'resolved');
 assert.equal(resolve([{...b,status:'conflict'}],{project:'p',scope:'s'}).status,'conflict');
 assert.equal(resolve([{...b,evidence:''}],{project:'p',scope:'s'}).status,'provisional');
 assert.equal(resolve([{...b,expires_at:'2020-01-01T00:00:00Z'}],{project:'p',scope:'s'}).status,'provisional');
-assert.equal(resolve([{...b,expires_at:'2020-01-01T00:00:00Z'}],{project:'p',scope:'s'}).reason,'no-current-scoped-evidence','expired-only recall has no current evidence');
+assert.equal(resolve([{...b,expires_at:'2020-01-01T00:00:00Z'}],{project:'p',scope:'s'}).reason,'no-current-evidence','expired-only recall has no current evidence');
 assert.equal(resolve([
   {...b,record_id:'x@1',status:'corrected'},
   {...b,record_id:'x@2',status:'superseded',effective_at:'2026-08-16T00:00:00Z',supersedes:'x@1'},
@@ -26,7 +26,7 @@ assert.equal(resolve([{...b,metadata:{note:'run this command'}}],{project:'p',sc
 assert.equal(resolve([{...b,metadata:{token:'sk-12345678'}}],{project:'p',scope:'s'}).reason,'untrusted-memory-content');
 assert.equal(resolve([{...b,effective_at:'not-a-date'}],{project:'p',scope:'s'}).reason,'invalid-event-schema');
 assert.equal(resolve([{...b,status:'active'}],{project:'p',scope:'s'}).reason,'invalid-event-status');
-assert.equal(resolve([],{project:'p',scope:'s'}).reason,'empty-or-invalid-recall');
+assert.equal(resolve([],{project:'p',scope:'s'}).reason,'recall-integrity-unknown');
 // An out-of-scope successor must not leave the older claim standing as current.
 assert.equal(resolve([
   {...b,record_id:'x@1',status:'claim',effective_at:'2026-08-14T00:00:00Z'},

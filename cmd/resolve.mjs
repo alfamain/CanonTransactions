@@ -10,7 +10,7 @@ function strings(value,out=[]){
 const untrusted=e=>UNTRUSTED.test(strings(e).join(' '));
 
 export function resolve(events,scope={}){
-  if(!Array.isArray(events)||!events.length)return {status:'provisional',reason:'empty-or-invalid-recall'};
+  if(!Array.isArray(events)||!events.length)return {status:'provisional',reason:'recall-integrity-unknown'};
   // Untrusted content is checked across every string field, not one field.
   if(events.some(untrusted))return {status:'provisional',reason:'untrusted-memory-content'};
   if(events.some(e=>!e.entity_key||!e.status||!e.effective_at||!Number.isFinite(Date.parse(e.effective_at))))
@@ -36,7 +36,7 @@ export function resolve(events,scope={}){
     rows.slice().sort((a,b)=>Date.parse(b.effective_at)-Date.parse(a.effective_at))[0]);
 
   const inScope=current.filter(e=>(!scope.project||e.project===scope.project)&&(!scope.scope||e.scope===scope.scope));
-  if(!inScope.length)return {status:'provisional',reason:'no-current-scoped-evidence'};
+  if(!inScope.length)return {status:'provisional',reason:'no-current-evidence'};
   const revoked=inScope.filter(e=>e.status==='revoked');
   const usable=inScope.filter(e=>e.status!=='revoked');
   // A recalled top-K can include several entities. A revocation applies to
@@ -44,7 +44,7 @@ export function resolve(events,scope={}){
   if(!usable.length&&revoked.length)
     return {status:'revoked',reason:'current-event-revoked',events:revoked};
   if(usable.some(e=>e.status==='conflict'))return {status:'conflict',reason:'explicit-conflict'};
-  if(usable.some(e=>!e.evidence||e.confidence!=='high'))return {status:'provisional',reason:'ungrounded-current-event'};
+  if(usable.some(e=>!e.evidence||e.confidence!=='high'))return {status:'provisional',reason:'ungrounded-current-evidence'};
   return {status:'resolved',events:usable,revoked};
 }
 
