@@ -2,7 +2,7 @@
 
 ```bash
 make test
-node cmd/resolve.mjs
+make demo
 ```
 
 ## Recording order
@@ -15,4 +15,4 @@ node cmd/resolve.mjs
 
 ## Evidence boundary
 
-The fixture is synthetic and the resolver is local. It proves lifecycle/canonical-resolution behavior only. A live section may be added after each real stage has a terminal `blob_id` and fresh-session recall; queued writes and local digests are not receipts.
+The fixture is synthetic and the resolver is local. `make demo` then prints a separate summary of the committed receipt manifest; it does not make a new write. It proves lifecycle/canonical-resolution behavior only. Queued writes and local digests are not receipts.

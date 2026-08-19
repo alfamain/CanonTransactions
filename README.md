@@ -8,7 +8,7 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 
 ## Local proof
 
-`make test` replays a ledger: an initial claim is corrected, a conflicting correction is escalated, a human resolution is recorded, and a later revocation removes the fact from canon. The fixture is synthetic; it does not claim a production record or Mainnet write.
+`make test` replays a ledger: an initial claim is corrected, a conflicting correction is escalated, a human resolution is recorded, and a later revocation removes the fact from canon. `make demo` is the read-only judge path: it shows lineage resolution, a conflict result, and a separate committed-receipt-board summary. The fixture is synthetic; it does not claim a production record or a new Mainnet write.
 
 ## Evidence standard
 
