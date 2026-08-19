@@ -35,3 +35,4 @@ PROMPT.md · ARTICLE.md · ISSUE.md · tests
 | revocation isolation | unrelated entity revocation poisoned the recalled set | apply revocation per entity, not globally | `tests/replay.test.mjs` | pass |
 | injection | recalled directive becomes evidence | provisional; do not execute/write | `tests/replay.test.mjs` | pass |
 | retrieval | partial top-K is inventory | provisional + diagnostic retry | live fixture | pending |
+| repository hygiene | credential-shaped file content | fail the local suite before release | `make secret-scan` | pass |

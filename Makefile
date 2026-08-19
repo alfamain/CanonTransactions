@@ -1,4 +1,4 @@
-test: evidence-check
+test: evidence-check secret-scan
 	node tests/replay.test.mjs
 	node cmd/resolve.mjs
 
@@ -7,3 +7,5 @@ demo:
 
 evidence-check:
 	node scripts/check-evidence.mjs replay/mainnet-receipts.json replay/checkpoints.json
+secret-scan:
+	node scripts/secret-scan.mjs
