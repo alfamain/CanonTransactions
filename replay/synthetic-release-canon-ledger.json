@@ -1,0 +1,53 @@
+{
+  "replay_id": "CT-SYN-RELEASE-01",
+  "classification": "purpose-built synthetic demo stand",
+  "synthetic_notice": "This compact repository was created solely to demonstrate Canon Transactions. It is not owner-project history, a production release record, provider behavior, or a Mainnet operation.",
+  "stand_bundle": "replay/stands/release-canon-ledger.bundle",
+  "stand_bundle_sha256": "e1c73476814145a31dd7ac43c02a1a323e0e62fa1f1fcd6aeac1115015a5ff0e",
+  "author": "Alfa Main <alfakalor.com@gmail.com>",
+  "prompt_sha256": "7c3e8ed5ff4acea3bad1f50b68fd8960db33418597ef511d4b8a8755fcfb3930",
+  "selection_rule": "Replay the complete four-commit synthetic release ledger in chronological order; each event has an immutable record_id and explicitly supersedes the prior event.",
+  "chain": [
+    {
+      "commit": "34aac1ae6e08783d43682dfe87d4ba20425da1ff",
+      "parent": null,
+      "subject": "Synthetic stand: record initial release claim",
+      "event_id": "atlas@1",
+      "expected_status": "claim"
+    },
+    {
+      "commit": "70e4474e00f1ed1a36ec02034f7ae75c58add506",
+      "parent": "34aac1ae6e08783d43682dfe87d4ba20425da1ff",
+      "subject": "Synthetic stand: correct release claim",
+      "event_id": "atlas@2",
+      "expected_status": "corrected"
+    },
+    {
+      "commit": "8294542296ce030a02db70d17294adc08d1552f4",
+      "parent": "70e4474e00f1ed1a36ec02034f7ae75c58add506",
+      "subject": "Synthetic stand: revoke release claim",
+      "event_id": "atlas@3",
+      "expected_status": "revoked"
+    },
+    {
+      "commit": "1951b7b3e07309fd8e4d26f2907ae2c12c320542",
+      "parent": "8294542296ce030a02db70d17294adc08d1552f4",
+      "subject": "Synthetic stand: escalate release conflict",
+      "event_id": "atlas@4",
+      "expected_status": "conflict"
+    }
+  ],
+  "policy_application": {
+    "input_path": "ledger/events.json",
+    "scope": {
+      "project": "release-canon-lab",
+      "scope": "release-readiness"
+    },
+    "expected_outcome": {
+      "status": "conflict",
+      "reason": "explicit-conflict"
+    },
+    "assertion": "A claim cannot remain canonical once later explicit correction, revocation, and conflict events for the same entity are in the candidate set. Resolver output comes from the full append-only event graph, never the most recent recall rank."
+  },
+  "evidence_boundary": "The stand proves deterministic Canon Transactions behavior on a fixed synthetic commit graph. It is not historical owner evidence, provider evidence, a production release decision, or a new Mainnet write."
+}

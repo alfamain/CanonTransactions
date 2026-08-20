@@ -10,6 +10,17 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 
 `make test` replays a ledger: an initial claim is corrected, a conflicting correction is escalated, a human resolution is recorded, and a later revocation removes the fact from canon. `make demo` is the read-only judge path: it shows lineage resolution, explicit conflict, named no-current-evidence and invalid-schema branches, and a separate committed-receipt-board summary. The fixture is synthetic; it does not claim a production record or a new Mainnet write.
 
+### Purpose-built synthetic stand
+
+There was no suitable owner-scoped historical project for this entry, so this repository includes a compact, purpose-built **synthetic** Git stand rather than presenting unrelated history as evidence. [`replay/synthetic-release-canon-ledger.json`](./replay/synthetic-release-canon-ledger.json) locks a four-commit Release Canon Ledger: claim → correction → revocation → conflict, with immutable IDs and explicit supersession.
+
+```bash
+git clone replay/stands/release-canon-ledger.bundle /tmp/release-canon-ledger
+make synthetic-stand ALFA_SYNTHETIC_STAND=/tmp/release-canon-ledger
+```
+
+The checker verifies the complete commit graph, author/committer, subjects, event counts, immutable IDs, supersession edges, final resolver result, bundle checksum, and this prompt's SHA-256. It proves deterministic behavior on this fixed synthetic graph only—not historical owner use, provider behavior, a production release decision, or a new Mainnet write.
+
 ## Evidence standard
 
 [`replay/checkpoints.json`](./replay/checkpoints.json) has ten distinct stages: claim, provisional canon, correction, cold resolution, conflict/escalation, human resolution, canonical recall, revocation, cold verification, replay invariants. The committed [`replay/mainnet-receipts.json`](./replay/mainnet-receipts.json) records **10/10 terminal Mainnet receipts** and fresh-client cold recalls for stages 02, 04, 06, 08, and 10. The local replay remains a separate deterministic proof.
