@@ -13,6 +13,7 @@ const manifest=JSON.parse(readFileSync(new URL('../replay/synthetic-release-cano
 const git=(...args)=>execFileSync('git',['-C',repo,...args],{encoding:'utf8'}).trim();
 const author=manifest.author;
 
+assert.equal(createHash('sha256').update(readFileSync(new URL(`../${manifest.stand_bundle}`,import.meta.url))).digest('hex'),manifest.stand_bundle_sha256,'committed stand bundle changed');
 assert.equal(createHash('sha256').update(readFileSync(new URL('../PROMPT.md',import.meta.url))).digest('hex'),manifest.prompt_sha256,'prompt revision changed');
 for(const [index,row] of manifest.chain.entries()){
   assert.equal(git('rev-parse',row.commit),row.commit,`missing chain commit ${index + 1}`);
