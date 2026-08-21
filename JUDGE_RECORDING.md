@@ -1,0 +1,40 @@
+# Canon Transactions — judge-first recording script
+
+> **Record only after the owner has reviewed the final repository.** Use a clean terminal, a clean clone where the script requests one, and no credentials, wallet addresses, private paths, or cost-bearing writes.
+
+## One sentence
+
+“Last recalled row wins” can revive a corrected or revoked claim and cannot represent unresolved conflict.
+
+## Recording contract
+
+- Duration target: **85 seconds**.
+- Use the repository’s real read-only commands only. Start with `make test` off-screen or briefly show its PASS summary.
+- Keep the baseline failure, evolved assertion, and evidence boundary in the same uninterrupted run.
+- Do not show raw provider output. `make provider-matrix` is optional reviewer evidence: it documents two-family coverage and deviations, not a model-security pass.
+- Do not show a blob ID as fresh evidence without a recorded fresh terminal run and independent read.
+
+| Time | Screen / narration |
+|---|---|
+| 0:00–0:10 | State: “Recall rank is not current truth.” Show the editorial ledger visual. |
+| 0:10–0:28 | Run `make demo`; show claim, explicit correction, revocation, and conflict as append-only events. |
+| 0:28–0:44 | Show resolver output: named conflict/revoked/provisional states rather than a guessed current fact. |
+| 0:44–1:00 | Show cross-entity regression: status text cannot supersede a different entity. |
+| 1:00–1:15 | Fresh-clone the committed stand bundle and run `make synthetic-stand`. |
+| 1:15–1:25 | Show receipt board as separate committed-manifest evidence. |
+
+## On-screen claim
+
+> The resolver deterministically resolves explicit lifecycle links over a full candidate set before scope selection.
+
+## Mandatory last line
+
+> Release Canon Ledger is a purpose-built synthetic stand, not owner-project history or a production truth service.
+
+## Recording check
+
+- [ ] The final terminal output contains a deterministic PASS assertion.
+- [ ] The audience can see one observed unsafe/baseline condition and the evolved response.
+- [ ] Synthetic/historical status is named, not implied.
+- [ ] The receipt board is visibly separated from local policy output.
+- [ ] No key, secret, personal data, wallet private material, or live write is shown.

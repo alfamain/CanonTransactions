@@ -34,6 +34,10 @@ cmd/ resolver CLI · ledger/ typed events · replay/ evidence plan · diagrams/ 
 PROMPT.md · ARTICLE.md · ISSUE.md · tests
 ```
 
+## Judge-first recording script
+
+[`JUDGE_RECORDING.md`](./JUDGE_RECORDING.md) is the 85–90 second CLI-first recording plan: observed failure → deterministic guard → reproducible assertion → explicit evidence boundary. It deliberately avoids credentials and cost-bearing writes.
+
 ## Owner submission packet
 
 [`SUBMISSION_PACKET.md`](./SUBMISSION_PACKET.md) is the owner-only closeout gate: one-page judge path, source-feedback draft, article/social/video links, dedicated Sessions-wallet proof, and final-form checklist. It distinguishes preparation from actions that only the corresponding owner may take.
