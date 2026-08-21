@@ -14,14 +14,14 @@ Typed transaction lineage makes the current scoped truth explicit rather than re
 - Do not show a blob ID as fresh evidence without a recorded fresh terminal run and independent read.
 
 | Time | Screen / narration |
-|---|---|
-| 0:10–0:24 | Open the [interactive verification lab](https://canon-transactions.vercel.app); open Ledger Wally, enter the transaction context, select a ledger route, and keep its resolver trace visible. |
+
 | 0:00–0:10 | State: “Recall rank is not current truth.” Show the editorial ledger visual. |
-| 0:10–0:28 | Run `make demo`; show claim, explicit correction, revocation, and conflict as append-only events. |
-| 0:28–0:44 | Show resolver output: named lifecycle and owner-review routes rather than a guessed current fact. |
-| 0:44–1:00 | Show cross-entity regression: status text cannot supersede a different entity. |
-| 1:00–1:15 | Fresh-clone the committed stand bundle and run `make synthetic-stand`. |
-| 1:15–1:25 | Show receipt board as separate committed-manifest evidence. |
+| 0:10–0:24 | Open the [interactive verification lab](https://canon-transactions.vercel.app); open Ledger Wally, enter the transaction context, select a ledger route, and keep its resolver trace visible. |
+| 0:24–0:42 | Run `make demo`; show claim, explicit correction, revocation, and conflict as append-only events. |
+| 0:42–0:55 | Show resolver output: named lifecycle and owner-review routes rather than a guessed current fact. |
+| 0:55–1:08 | Show cross-entity regression: status text cannot supersede a different entity. |
+| 1:08–1:20 | Fresh-clone the committed stand bundle and run `make synthetic-stand`. |
+| 1:20–1:30 | Show receipt board as separate committed-manifest evidence. |
 
 ## On-screen claim
 
