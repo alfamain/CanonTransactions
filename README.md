@@ -6,6 +6,14 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 
 ![Canon transaction flow](./diagrams/canon-flow.svg)
 
+
+## Interactive verification lab
+
+**Run in browser:** [interactive verification lab](https://canon-transactions-guxyw74vu-alfaman.vercel.app)  
+**Reproduce locally:** `make test && make demo`
+
+The browser lab is a read-only, deterministic view of the project’s published policy scenarios. It does not create a Mainnet write; committed receipt and fresh-client proof remain separate evidence.
+
 ## Local proof
 
 `make test` replays a ledger: an initial claim is corrected, a conflicting correction is escalated, a human resolution is recorded, and a later revocation removes the fact from canon. `make demo` is the read-only judge path: it shows lineage resolution, explicit conflict, named no-current-evidence and invalid-schema branches, and a separate committed-receipt-board summary. The fixture is synthetic; it does not claim a production record or a new Mainnet write.
