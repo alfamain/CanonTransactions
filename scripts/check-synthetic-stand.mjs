@@ -1,14 +1,17 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {readFileSync} from 'node:fs';
+import {mkdtempSync, readFileSync, rmSync} from 'node:fs';
 import {resolve} from '../cmd/resolve.mjs';
 import {execFileSync} from 'node:child_process';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 
-const repo=process.env.ALFA_SYNTHETIC_STAND;
-if(!repo){
-  console.log('synthetic stand: SKIP (set ALFA_SYNTHETIC_STAND to a clone of replay/stands/release-canon-ledger.bundle)');
-  process.exit(0);
-}
+const root=new URL('../',import.meta.url);
+const supplied=process.env.ALFA_SYNTHETIC_STAND;
+const temporary=supplied ? null : mkdtempSync(join(tmpdir(),'canon-transactions-stand-'));
+const repo=supplied || temporary;
+if(temporary) execFileSync('git',['clone','--quiet',new URL('../replay/stands/release-canon-ledger.bundle',import.meta.url).pathname,repo]);
+try {
 const manifest=JSON.parse(readFileSync(new URL('../replay/synthetic-release-canon-ledger.json',import.meta.url)));
 const git=(...args)=>execFileSync('git',['-C',repo,...args],{encoding:'utf8'}).trim();
 const author=manifest.author;
@@ -35,3 +38,6 @@ const outcome=resolve(events,manifest.policy_application.scope);
 assert.equal(outcome.status,manifest.policy_application.expected_outcome.status);
 assert.equal(outcome.reason,manifest.policy_application.expected_outcome.reason);
 console.log(JSON.stringify({replay_id:manifest.replay_id,classification:manifest.classification,commits:manifest.chain.length,outcome,evidence_boundary:manifest.evidence_boundary},null,2));
+} finally {
+  if(temporary) rmSync(temporary,{recursive:true,force:true});
+}

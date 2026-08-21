@@ -24,7 +24,7 @@ There was no suitable owner-scoped historical project for this entry, so this re
 
 ```bash
 git clone replay/stands/release-canon-ledger.bundle /tmp/release-canon-ledger
-make synthetic-stand ALFA_SYNTHETIC_STAND=/tmp/release-canon-ledger
+make synthetic-stand
 ```
 
 

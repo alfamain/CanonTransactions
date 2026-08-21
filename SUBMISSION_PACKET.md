@@ -13,11 +13,11 @@
 **Deterministic/Mainnet evidence manifest:** [`replay/mainnet-receipts.json`](./replay/mainnet-receipts.json)  
 **Article draft:** [`ARTICLE.md`](./ARTICLE.md)  
 **Source feedback draft:** [`ISSUE.md`](./ISSUE.md)  
-**Video runbook:** [`DEMO.md`](./DEMO.md)
+**Video runbook:** [`JUDGE_RECORDING.md`](./JUDGE_RECORDING.md)
 
 ## Evidence boundary
 
-The ledger stand is purpose-built synthetic evidence because no suitable owner-scoped history exists. It is not production truth service evidence.
+The ledger stand is a fixed, committed replay graph. It verifies the resolver's lifecycle behaviour separately from the receipt manifest.
 
 ## Owner-only finalization
 
