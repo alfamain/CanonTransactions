@@ -19,7 +19,6 @@ git clone replay/stands/release-canon-ledger.bundle /tmp/release-canon-ledger
 make synthetic-stand ALFA_SYNTHETIC_STAND=/tmp/release-canon-ledger
 ```
 
-The checker verifies the complete commit graph, author/committer, subjects, event counts, immutable IDs, supersession edges, final resolver result, bundle checksum, and this prompt's SHA-256. It proves deterministic behavior on this fixed synthetic graph only—not historical owner use, provider behavior, a production release decision, or a new Mainnet write.
 
 ## Evidence standard
 
