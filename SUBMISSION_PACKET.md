@@ -11,7 +11,6 @@
 **Evolved prompt:** [`PROMPT.md`](./PROMPT.md)  
 **Source prompt:** https://github.com/yukitran03/continuity-keeper  
 **Deterministic/Mainnet evidence manifest:** [`replay/mainnet-receipts.json`](./replay/mainnet-receipts.json)  
-**Provider matrix:** run `make provider-matrix`; it records two-family fixture coverage and deviations, not a blanket model-security pass.  
 **Article draft:** [`ARTICLE.md`](./ARTICLE.md)  
 **Source feedback draft:** [`ISSUE.md`](./ISSUE.md)  
 **Video runbook:** [`DEMO.md`](./DEMO.md)
@@ -37,5 +36,4 @@ The ledger stand is purpose-built synthetic evidence because no suitable owner-s
 - [ ] Article and social post were personally reviewed/adopted by the owner.
 - [ ] Video speaks only to demonstrated layers and visibly states the limitation.
 - [ ] Receipt wording says “committed manifest” unless a fresh terminal run and independent read are documented.
-- [ ] Provider wording says “two-family fixture coverage with recorded deviations,” never “all models passed.”
 - [ ] Exactly one final submission is made by this owner.
