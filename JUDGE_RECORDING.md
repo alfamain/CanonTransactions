@@ -15,6 +15,7 @@
 
 | Time | Screen / narration |
 |---|---|
+| 0:10–0:24 | Open the [interactive verification lab](https://canon-transactions-alfa.vercel.app); select the unsafe or adversarial scenario and keep its resolver trace visible. |
 | 0:00–0:10 | State: “Recall rank is not current truth.” Show the editorial ledger visual. |
 | 0:10–0:28 | Run `make demo`; show claim, explicit correction, revocation, and conflict as append-only events. |
 | 0:28–0:44 | Show resolver output: named conflict/revoked/provisional states rather than a guessed current fact. |

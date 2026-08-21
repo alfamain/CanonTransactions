@@ -9,7 +9,7 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 
 ## Interactive verification lab
 
-**Run in browser:** [interactive verification lab](https://canon-transactions-guxyw74vu-alfaman.vercel.app)  
+**Run in browser:** [interactive verification lab](https://canon-transactions-alfa.vercel.app)  
 **Reproduce locally:** `make test && make demo`
 
 The browser lab is a read-only, deterministic view of the project’s published policy scenarios. It does not create a Mainnet write; committed receipt and fresh-client proof remain separate evidence.
