@@ -61,3 +61,7 @@ This layer is **complete as coverage, not as a universal pass claim**. Gemini pr
 | injection | recalled directive becomes evidence | provisional; do not execute/write | `tests/replay.test.mjs` | pass |
 | retrieval | partial top-K is inventory | provisional + diagnostic retry | live fixture | pending |
 | repository hygiene | credential-shaped file content | fail the local suite before release | `make secret-scan` | pass |
+
+## Current SDK proof
+
+A current official-SDK write → terminal non-empty `blob_id` → destroy → new-client exact recall is recorded in [`replay/live-sdk-proof-2026-08-21.json`](./replay/live-sdk-proof-2026-08-21.json). It validates the SDK path separately from the ten-checkpoint manifest.
