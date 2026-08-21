@@ -2,7 +2,6 @@
 test: evidence-check secret-scan
 	node tests/replay.test.mjs
 	node tests/synthetic-stand.test.mjs
-	node cmd/resolve.mjs
 
 demo:
 	node cmd/demo.mjs
