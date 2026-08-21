@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#202219"/><path d="M11 36c0-16 11-25 21-25s21 9 21 25c0 9-6 16-14 16H25c-8 0-14-7-14-16Z" fill="#18745b"/><circle cx="26" cy="31" r="3" fill="#f1e7d1"/><circle cx="39" cy="31" r="3" fill="#f1e7d1"/><path d="M25 40q7 5 14 0" fill="none" stroke="#f1e7d1" stroke-width="3" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Canon Transactions mark">
+  <rect width="64" height="64" fill="#15161a"/>
+  <rect x="10" y="12" width="6" height="40" fill="#f4f1e8"/>
+  <rect x="20" y="12" width="34" height="4" fill="#b8b3a3"/>
+  <rect x="20" y="22" width="34" height="4" fill="#b8b3a3"/>
+  <rect x="20" y="32" width="34" height="4" fill="#a8341f"/>
+  <rect x="20" y="42" width="24" height="4" fill="#0f4d3f"/>
+  <rect x="20" y="30" width="34" height="8" fill="none" stroke="#f4f1e8" stroke-width="1"/>
+</svg>

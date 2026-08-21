@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
- <rect width="1200" height="630" fill="#f1e7d1"/><path d="M0 500 C180 430 330 580 520 500 S860 420 1200 520 V630 H0Z" fill="#18745b" opacity=".18"/>
- <g transform="translate(810 120)" fill="#202219" stroke="#18745b" stroke-width="14"><path d="M65 270c0-125 93-205 200-205s200 80 200 205c0 80-52 150-130 150h-142C117 420 65 350 65 270Z"/><circle cx="212" cy="225" r="15" fill="#f1e7d1" stroke="none"/><circle cx="318" cy="225" r="15" fill="#f1e7d1" stroke="none"/><path d="M198 305q68 46 136 0" fill="none" stroke="#f1e7d1" stroke-width="14" stroke-linecap="round"/><path d="M150 420v70m70-70v70m70-70v70m70-70v70" stroke="#202219"/><path d="M255 125v-70" stroke="#18745b" stroke-linecap="round"/></g>
- <text x="80" y="120" font-family="Arial,sans-serif" font-size="28" letter-spacing="5" fill="#18745b">WALRUS SESSIONS 7</text><text x="80" y="250" font-family="Arial,sans-serif" font-size="78" font-weight="700" fill="#202219">Canon Transactions</text><text x="80" y="325" font-family="Arial,sans-serif" font-size="33" fill="#202219">Typed events resolve what is true now.</text><text x="80" y="520" font-family="Arial,sans-serif" font-size="24" fill="#18745b">Ledger Wally · DETERMINISTIC AGENT WORKFLOW</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Canon Transactions — Walrus Sessions 7">
+  <rect width="1200" height="630" fill="#f4f1e8"/>
+  <rect x="0" y="0" width="1200" height="14" fill="#15161a"/>
+  <rect x="72" y="86" width="10" height="72" fill="#15161a"/>
+  <text x="104" y="126" font-family="Georgia, serif" font-size="40" font-weight="bold" letter-spacing="14" fill="#15161a">CANON</text>
+  <text x="106" y="158" font-family="monospace" font-size="22" letter-spacing="11" fill="#0f4d3f">TRANSACTIONS</text>
+  <line x1="72" y1="196" x2="1128" y2="196" stroke="#b8b3a3" stroke-width="2"/>
+  <text x="72" y="286" font-family="Georgia, serif" font-size="62" font-weight="bold" fill="#15161a">What is true now, after</text>
+  <text x="72" y="356" font-family="Georgia, serif" font-size="62" font-weight="bold" fill="#15161a">every correction?</text>
+  <text x="72" y="424" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#4b4d55">One canonical resolver replays the whole append-only record set.</text>
+  <rect x="72" y="470" width="6" height="70" fill="#0f4d3f"/>
+  <text x="94" y="500" font-family="monospace" font-size="20" fill="#4b4d55">Walrus Sessions 7 · read-only agent lab</text>
+  <text x="94" y="530" font-family="monospace" font-size="20" fill="#4b4d55">make test · make demo · cmd/resolve.mjs</text>
+  <rect x="0" y="616" width="1200" height="14" fill="#a8341f"/>
+</svg>
