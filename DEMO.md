@@ -11,7 +11,7 @@ make synthetic-stand ALFA_SYNTHETIC_STAND=/tmp/release-canon-ledger
 
 1. Show the initial claim and its immutable record ID.
 2. Show an explicit correction edge and the conflict case.
-3. Show the human resolution transaction, then the final revocation.
+3. Show the final revocation, then the separate conflict fixture.
 4. Run the resolver. It must report the final revoked outcome rather than selecting a row by retrieval/order.
 5. Show the cross-entity regression: a shared status is never sufficient to supersede a different entity.
 6. Show the synthetic stand verifier: four immutable commits move one release record through claim → correction → revocation → conflict. It must report `explicit-conflict`; this is deliberately labelled synthetic.
