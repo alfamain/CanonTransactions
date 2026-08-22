@@ -290,3 +290,9 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* Run feedback: each evaluation visibly refreshes the verdict column. */
+.verdict .reading { margin: 0.7rem 0 0.9rem; font-size: 0.9rem; line-height: 1.55; opacity: 0.92; }
+@keyframes ct-flash { 0% { transform: translateY(-3px); filter: brightness(1.1); } 100% { transform: none; filter: none; } }
+.verdict.flash { animation: ct-flash 0.9s ease-out; }
+@media (prefers-reduced-motion: reduce) { .verdict.flash { animation: none; } }

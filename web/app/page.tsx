@@ -49,9 +49,13 @@ export default function Page() {
   const [data, setData] = useState<Result | null>(null);
   const [running, setRunning] = useState(false);
   const [notice, setNotice] = useState("");
+  const [runSeq, setRunSeq] = useState(0);
+  const [ranAt, setRanAt] = useState<string | null>(null);
+  const [flash, setFlash] = useState(false);
   const first = useRef(true);
+  const verdictRef = useRef<HTMLDivElement>(null);
 
-  const run = useCallback(async (index: number, context: string) => {
+  const run = useCallback(async (index: number, context: string, manual = false) => {
     setRunning(true);
     setNotice("");
     try {
@@ -62,6 +66,13 @@ export default function Page() {
       });
       if (!res.ok) throw new Error(String(res.status));
       setData((await res.json()) as Result);
+      setRunSeq((current) => current + 1);
+      setRanAt(new Date().toLocaleTimeString());
+      setFlash(true);
+      window.setTimeout(() => setFlash(false), 900);
+      if (manual) {
+        verdictRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     } catch {
       setNotice("The resolver route is not reachable from this page right now. Reproduce the same run locally with the command in the reproduction column.");
     } finally {
@@ -165,14 +176,20 @@ export default function Page() {
                 ))}
               </ul>
 
-              <button type="button" className="run" onClick={() => void run(edition, note)} disabled={running}>
+              <button type="button" className="run" onClick={() => void run(edition, note, true)} disabled={running}>
                 {running ? "Resolving…" : "Run canonical evaluation"}
               </button>
             </div>
 
             <div className="col wide">
-              <p className="step">Step 3 &middot; Canonical evaluation</p>
-              <div className="verdict" aria-live="polite">
+              <p className="step">
+                {running
+                  ? "Step 3 · Resolving canon…"
+                  : ranAt
+                    ? `Step 3 · Canonical evaluation · run ${runSeq} · ${ranAt}`
+                    : "Step 3 · Canonical evaluation"}
+              </p>
+              <div ref={verdictRef} className={flash ? "verdict flash" : "verdict"} aria-live="polite">
                 {notice ? (
                   <p className="notice">{notice}</p>
                 ) : data ? (
@@ -180,6 +197,11 @@ export default function Page() {
                     <p className="route-name">{data.route.route}</p>
                     <h3>{data.route.label}</h3>
                     <p>{data.route.summary}</p>
+                    <p className="reading">
+                      {data.selected.length
+                        ? "Canon resolved to current records, so downstream work is allowed to rely on this answer."
+                        : "Refusing to answer from stale or contested records is the intended outcome here: the evolved prompt requires current, reconciled canon."}
+                    </p>
                     <dl className="facts">
                       <div>
                         <dt>Canonical state</dt>
