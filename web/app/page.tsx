@@ -112,23 +112,38 @@ export default function Page() {
 
       <main>
         <section className="lede-band" aria-labelledby="lede-title">
-          <div>
-            <p className="kicker">Front page</p>
-            <h1 id="lede-title">What is true now, after every correction?</h1>
+          <p className="kicker">Front page</p>
+          <h1 id="lede-title">What is true now, after every correction?</h1>
+
+          <div className="columns-three">
             <p className="standfirst">
               Append-only memory keeps every claim. Canon Transactions replays the whole record set through one
               canonical resolver, so the newest row never wins by accident and a retirement never erases the history
               that produced it.
             </p>
-            <p className="boundary">
-              No wallet. No provider key. No storage write. This page replays committed fixtures through
-              <code> cmd/resolve.mjs</code> and makes no Mainnet claim.
-            </p>
+            <figure className="halftone">
+              <img
+                src="/canon-transactions-archivist.png"
+                width={1536}
+                height={1536}
+                alt="An archivist stamps a ledger while a board shows current, corrected, and revoked records."
+              />
+              <figcaption>The record keeps its history; canon selects the current evidence.</figcaption>
+            </figure>
+            <div className="column-notes">
+              <dl className="edition">
+                <div><dt>Resolver</dt><dd>cmd/resolve.mjs</dd></div>
+                <div><dt>Record events</dt><dd>claim · correction · dispute · revocation</dd></div>
+                <div><dt>Browser writes</dt><dd>none</dd></div>
+              </dl>
+              <p className="boundary">
+                No wallet. No provider key. No storage write. This page replays committed fixtures through
+                <code> cmd/resolve.mjs</code> and makes no Mainnet claim.
+              </p>
+              <a className="hero-cta" href="#lab">Read the resolver lab</a>
+            </div>
           </div>
-          <figure className="portrait">
-            <img src="/canon-transactions-archivist.png" width={420} height={420} alt="An archivist stamps a ledger while a board shows current, corrected, and revoked records." />
-            <figcaption>The record keeps its history; canon selects the current evidence.</figcaption>
-          </figure>
+          <p className="ornament" aria-hidden="true">&#x2727; &#x2727; &#x2727;</p>
         </section>
 
         <section id="lab" className="lab" aria-labelledby="lab-title">
