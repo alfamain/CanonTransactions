@@ -115,8 +115,8 @@ export default function Page() {
             </p>
           </div>
           <figure className="portrait">
-            <img src="/mascot-peace.png" width={420} height={420} alt="The Walrus mascot in a headset, raising a peace sign beside the ledger desk." />
-            <figcaption>Peace on the record: corrections are appended, not overwritten.</figcaption>
+            <img src="/canon-transactions-archivist.png" width={420} height={420} alt="An archivist stamps a ledger while a board shows current, corrected, and revoked records." />
+            <figcaption>The record keeps its history; canon selects the current evidence.</figcaption>
           </figure>
         </section>
 
