@@ -14,6 +14,9 @@ An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-kee
 
 **Receipt inventory:** [`docs/RECEIPTS.md`](./docs/RECEIPTS.md)
 
+**Prompt-to-proof map:** [`docs/PROMPT_TO_TEST.md`](./docs/PROMPT_TO_TEST.md)  
+**Replay receipt:** [`docs/REPLAY_RECEIPT.md`](./docs/REPLAY_RECEIPT.md)  
+
 The browser lab is a read-only, deterministic view of the project’s published policy scenarios. It does not create a Mainnet write; committed receipt and fresh-client proof remain separate evidence.
 
 ## Local proof
