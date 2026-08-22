@@ -1,5 +1,5 @@
 .PHONY: evidence-check secret-scan synthetic-stand test demo
-test: evidence-check secret-scan
+test: prompt-contract  evidence-check secret-scan
 	node tests/replay.test.mjs
 	node tests/synthetic-stand.test.mjs
 
@@ -13,3 +13,6 @@ secret-scan:
 
 synthetic-stand:
 	node scripts/check-synthetic-stand.mjs
+
+prompt-contract:
+	node tests/prompt-contract.test.mjs
