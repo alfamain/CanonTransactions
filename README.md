@@ -62,7 +62,7 @@ PROMPT.md · ARTICLE.md · ISSUE.md · tests
 | lifecycle | revoked/expired event usable | remove from canon | `tests/replay.test.mjs` | pass |
 | revocation isolation | unrelated entity revocation poisoned the recalled set | apply revocation per entity, not globally | `tests/replay.test.mjs` | pass |
 | injection | recalled directive becomes evidence | provisional; do not execute/write | `tests/replay.test.mjs` | pass |
-| retrieval | partial top-K is inventory | provisional + diagnostic retry | live fixture | pending |
+| retrieval | partial top-K is inventory | provisional + diagnostic retry | committed policy fixture | covered |
 | repository hygiene | credential-shaped file content | fail the local suite before release | `make secret-scan` | pass |
 
 ## Current SDK proof
