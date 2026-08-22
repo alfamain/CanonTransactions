@@ -323,10 +323,10 @@ footer {
 .halftone img { display: block; width: 100%; height: auto; filter: grayscale(1) contrast(1.24) brightness(1.02); }
 .halftone figcaption { margin-top: 8px; font: 400 12px/1.5 var(--display); font-style: italic; color: var(--muted); }
 .column-notes { display: grid; gap: 14px; align-content: start; }
-.edition { margin: 0; display: grid; gap: 8px; }
-.edition div { display: grid; gap: 2px; border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
-.edition dt { font: 500 10px var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-.edition dd { margin: 0; font: 500 12px var(--mono); }
+.frontnotes { margin: 0; display: grid; gap: 10px; }
+.frontnotes > div { display: block; border-bottom: 1px solid var(--rule); padding: 0 0 7px; background: none; }
+.frontnotes dt { display: block; font: 500 10px/1.4 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.frontnotes dd { display: block; margin: 3px 0 0; font: 500 12px/1.45 var(--mono); color: var(--ink); }
 .hero-cta {
   justify-self: start;
   display: inline-block;

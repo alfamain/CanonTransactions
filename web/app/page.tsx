@@ -131,7 +131,7 @@ export default function Page() {
               <figcaption>The record keeps its history; canon selects the current evidence.</figcaption>
             </figure>
             <div className="column-notes">
-              <dl className="edition">
+              <dl className="frontnotes">
                 <div><dt>Resolver</dt><dd>cmd/resolve.mjs</dd></div>
                 <div><dt>Record events</dt><dd>claim · correction · dispute · revocation</dd></div>
                 <div><dt>Browser writes</dt><dd>none</dd></div>
