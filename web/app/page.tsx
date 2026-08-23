@@ -121,14 +121,18 @@ export default function Page() {
               canonical resolver, so the newest row never wins by accident and a retirement never erases the history
               that produced it.
             </p>
-            <figure className="halftone">
-              <img
-                src="/canon-transactions-archivist.png"
-                width={1536}
-                height={1536}
-                alt="An archivist stamps a ledger while a board shows current, corrected, and revoked records."
-              />
-              <figcaption>The record keeps its history; canon selects the current evidence.</figcaption>
+            <figure className="ledger-figure" aria-hidden="true">
+              <table className="ledger">
+                <caption>Record set as filed</caption>
+                <tbody>
+                  <tr><td>r1</td><td>claim</td><td>rev 1</td><td className="state">superseded</td></tr>
+                  <tr><td>r2</td><td>correction</td><td>rev 2</td><td className="state">superseded</td></tr>
+                  <tr><td>r3</td><td>dispute</td><td>rev 2</td><td className="state">weighed</td></tr>
+                  <tr className="now"><td>r4</td><td>correction</td><td>rev 3</td><td className="state">canonical</td></tr>
+                  <tr><td>r5</td><td>revocation</td><td>rev 3</td><td className="state">retires r1</td></tr>
+                </tbody>
+              </table>
+              <figcaption>The record keeps its history; canon selects the current line.</figcaption>
             </figure>
             <div className="column-notes">
               <dl className="frontnotes">
