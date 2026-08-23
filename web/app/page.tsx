@@ -178,6 +178,11 @@ export default function Page() {
                   </button>
                 ))}
               </div>
+              <dl className="key">
+                <div><dt>canon</dt><dd>the one current, in-scope record the agent may rely on</dd></div>
+                <div><dt>retired</dt><dd>superseded or revoked by an explicit lifecycle link</dd></div>
+                <div><dt>kept as history</dt><dd>still readable, never promoted to an answer</dd></div>
+              </dl>
             </div>
 
             <div className="deskbar-block">
