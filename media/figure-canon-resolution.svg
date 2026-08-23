@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" font-family="Georgia, 'Times New Roman', serif">
+  <rect width="1200" height="700" fill="#F4F1EA"/>
+
+  <path d="M48 40 L1152 40" stroke="#1A1A18" stroke-width="3"/>
+  <text x="48" y="86" font-size="31" font-weight="700" fill="#1A1A18">Every row is kept. One row is canon.</text>
+  <text x="48" y="116" font-size="16" font-style="italic" fill="#6B655C">A correction never edits its predecessor — it appends a transaction that names it.</text>
+  <path d="M48 136 L1152 136" stroke="#1A1A18" stroke-width="1"/>
+
+  <!-- column headers -->
+  <text x="48" y="176" font-size="11" font-weight="700" fill="#9B1B1B" letter-spacing="1.6" font-family="'DejaVu Sans', Arial, sans-serif">THE RECORD SET AS FILED</text>
+
+  <text x="48" y="212" font-size="12" fill="#8A857C" font-family="'DejaVu Sans', Arial, sans-serif">#</text>
+  <text x="96" y="212" font-size="12" fill="#8A857C" font-family="'DejaVu Sans', Arial, sans-serif">RECORD</text>
+  <text x="440" y="212" font-size="12" fill="#8A857C" font-family="'DejaVu Sans', Arial, sans-serif">LIFECYCLE</text>
+  <text x="620" y="212" font-size="12" fill="#8A857C" font-family="'DejaVu Sans', Arial, sans-serif">EVENT TIME (UTC)</text>
+  <text x="856" y="212" font-size="12" fill="#8A857C" font-family="'DejaVu Sans', Arial, sans-serif">SUPERSEDES</text>
+  <text x="1004" y="212" font-size="12" fill="#8A857C" font-family="'DejaVu Sans', Arial, sans-serif">DISPOSITION</text>
+  <path d="M48 224 L1152 224" stroke="#C8C2B6" stroke-width="1"/>
+
+  <!-- row 1 -->
+  <text x="48" y="262" font-size="14" fill="#6B655C" font-family="monospace">01</text>
+  <text x="96" y="262" font-size="15" fill="#3A3630" font-family="monospace">release:target#claim</text>
+  <text x="440" y="262" font-size="13" fill="#6B655C" font-family="'DejaVu Sans', Arial, sans-serif" letter-spacing="1">CLAIM</text>
+  <text x="620" y="262" font-size="14" fill="#6B655C" font-family="monospace">2026-08-15 10:00:00</text>
+  <text x="856" y="262" font-size="14" fill="#A8A297" font-family="monospace">—</text>
+  <rect x="1004" y="244" width="148" height="26" fill="none" stroke="#B4AEA2" stroke-width="1"/>
+  <text x="1014" y="262" font-size="11" fill="#6B655C" font-family="'DejaVu Sans', Arial, sans-serif" letter-spacing="0.6">KEPT AS HISTORY</text>
+  <path d="M48 282 L1152 282" stroke="#E2DDD2" stroke-width="1"/>
+
+  <!-- row 2 -->
+  <text x="48" y="320" font-size="14" fill="#6B655C" font-family="monospace">02</text>
+  <text x="96" y="320" font-size="15" fill="#3A3630" font-family="monospace">release:target#corrected</text>
+  <text x="440" y="320" font-size="13" fill="#6B655C" font-family="'DejaVu Sans', Arial, sans-serif" letter-spacing="1">CORRECTED</text>
+  <text x="620" y="320" font-size="14" fill="#6B655C" font-family="monospace">2026-08-15 10:05:00</text>
+  <text x="856" y="320" font-size="14" fill="#3A3630" font-family="monospace">claim</text>
+  <rect x="1004" y="302" width="148" height="26" fill="none" stroke="#B4AEA2" stroke-width="1"/>
+  <text x="1014" y="320" font-size="11" fill="#6B655C" font-family="'DejaVu Sans', Arial, sans-serif" letter-spacing="0.6">KEPT AS HISTORY</text>
+  <path d="M48 340 L1152 340" stroke="#E2DDD2" stroke-width="1"/>
+
+  <!-- row 3 canon -->
+  <rect x="40" y="348" width="1120" height="48" fill="#EAF0EB"/>
+  <path d="M40 348 L40 396" stroke="#1F5F3F" stroke-width="4"/>
+  <text x="48" y="378" font-size="14" fill="#3A3630" font-family="monospace">03</text>
+  <text x="96" y="378" font-size="15" font-weight="700" fill="#1A1A18" font-family="monospace">release:target#revoked</text>
+  <text x="440" y="378" font-size="13" font-weight="700" fill="#9B1B1B" font-family="'DejaVu Sans', Arial, sans-serif" letter-spacing="1">REVOKED</text>
+  <text x="620" y="378" font-size="14" fill="#3A3630" font-family="monospace">2026-08-15 10:10:00</text>
+  <text x="856" y="378" font-size="14" fill="#3A3630" font-family="monospace">corrected</text>
+  <rect x="1004" y="360" width="148" height="26" fill="#1F5F3F"/>
+  <text x="1048" y="378" font-size="11" font-weight="700" fill="#FFFFFF" font-family="'DejaVu Sans', Arial, sans-serif" letter-spacing="1">CANON</text>
+
+  <!-- lineage arrows -->
+  <g stroke="#9B1B1B" stroke-width="1.5" fill="none">
+    <path d="M320 268 C348 288 348 300 320 314"/>
+    <path d="M326 308 L320 314 L328 318" fill="#9B1B1B"/>
+    <path d="M356 326 C384 346 384 358 356 372"/>
+    <path d="M362 366 L356 372 L364 376" fill="#9B1B1B"/>
+  </g>
+
+  <!-- statement -->
+  <path d="M48 442 L1152 442" stroke="#1A1A18" stroke-width="1"/>
+  <text x="48" y="482" font-size="11" font-weight="700" fill="#9B1B1B" letter-spacing="1.6" font-family="'DejaVu Sans', Arial, sans-serif">STATEMENT OF CANON</text>
+
+  <text x="48" y="546" font-size="46" font-weight="700" fill="#9B1B1B">RETIRED</text>
+  <text x="48" y="584" font-size="17" fill="#3A3630">A later record retired this fact, so canon is</text>
+  <text x="48" y="610" font-size="17" fill="#3A3630">deliberately empty for this entity.</text>
+
+  <path d="M420 470 L420 640" stroke="#C8C2B6" stroke-width="1"/>
+
+  <text x="460" y="506" font-size="11" fill="#8A857C" letter-spacing="1.2" font-family="'DejaVu Sans', Arial, sans-serif">CANONICAL STATE</text>
+  <text x="460" y="532" font-size="15" fill="#1A1A18" font-family="monospace">CANON: revoked</text>
+  <path d="M460 544 L740 544" stroke="#D8D2C6" stroke-width="1"/>
+
+  <text x="460" y="580" font-size="11" fill="#8A857C" letter-spacing="1.2" font-family="'DejaVu Sans', Arial, sans-serif">CANON LINE</text>
+  <text x="460" y="606" font-size="15" fill="#1A1A18" font-family="monospace">release:target#revoked</text>
+  <path d="M460 618 L740 618" stroke="#D8D2C6" stroke-width="1"/>
+
+  <text x="800" y="506" font-size="11" fill="#8A857C" letter-spacing="1.2" font-family="'DejaVu Sans', Arial, sans-serif">REASON CODE</text>
+  <text x="800" y="532" font-size="15" fill="#1A1A18" font-family="monospace">current-event-revoked</text>
+  <path d="M800 544 L1152 544" stroke="#D8D2C6" stroke-width="1"/>
+
+  <text x="800" y="580" font-size="11" fill="#8A857C" letter-spacing="1.2" font-family="'DejaVu Sans', Arial, sans-serif">WHAT A READER STILL SEES</text>
+  <text x="800" y="606" font-size="15" fill="#1A1A18">all three rows, and which retired which</text>
+  <path d="M800 618 L1152 618" stroke="#D8D2C6" stroke-width="1"/>
+
+  <text x="48" y="672" font-size="14" font-style="italic" fill="#6B655C">Lifecycle resolves across the whole candidate set before scope is applied — otherwise an out-of-scope successor vanishes and its predecessor looks current.</text>
+</svg>
