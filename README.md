@@ -2,8 +2,6 @@
 
 **Agent memory that can answer one hard question: what is true right now?**
 
-[![local suite](https://img.shields.io/badge/make%20test-passing-0f4d3f)](./tests)
-[![prompt contract](https://img.shields.io/badge/prompt%20contract-5%20material%20rules-0f4d3f)](./tests/prompt-contract.test.mjs)
 [![receipts](https://img.shields.io/badge/committed%20receipts-10%20terminal-15161a)](./docs/RECEIPTS.md)
 [![cold recall](https://img.shields.io/badge/fresh%20client%20recalls-5-15161a)](./replay/mainnet-receipts.json)
 [![browser lab](https://img.shields.io/badge/lab-read--only-a8341f)](https://canon-transactions.vercel.app)
@@ -33,7 +31,7 @@
 
 The lab is a read-only replay of committed fixtures through the same resolver the CLI uses. No wallet, no provider key, no storage write, no Mainnet claim.
 
-## Reproduce it in a terminal
+## Quick start — Reproduce it in a terminal
 
 ```bash
 make test            # prompt contract, evidence check, secret scan, replay and stand tests
@@ -109,3 +107,5 @@ diagrams/            rendered canon flow
 - **Recording:** [`JUDGE_RECORDING.md`](./JUDGE_RECORDING.md) is the 85–90 second CLI-first runbook.
 
 An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-keeper).
+
+_Last verified against commit `95e9770178e52f623ffc4a219519ce41b993f6fe` on 2026-08-23._
