@@ -177,7 +177,7 @@ are reported separately and never merged into one claim.
 
 ```text
 PROMPT.md            the evolved agent contract
-cmd/resolve.mjs      the canonical resolver, shared by the CLI and the browser lab
+cmd/resolve.mjs      the canonical resolver, shared by the CLI and the canon desk
 cmd/demo.mjs         the judge path
 ledger/events.json   the typed transaction fixture
 tests/               replay, synthetic stand, prompt-contract mutation tests
