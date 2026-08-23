@@ -5,8 +5,19 @@
 [![receipts](https://img.shields.io/badge/committed%20receipts-10%20terminal-15161a)](./docs/RECEIPTS.md)
 [![cold recall](https://img.shields.io/badge/fresh%20client%20recalls-5-15161a)](./replay/mainnet-receipts.json)
 [![browser lab](https://img.shields.io/badge/lab-read--only-a8341f)](https://canon-transactions.vercel.app)
+[![tests](https://img.shields.io/github/actions/workflow/status/alfamain/CanonTransactions/tests.yml?branch=main&label=tests)](https://github.com/alfamain/CanonTransactions/actions/workflows/tests.yml)
 
 ![Canon transaction flow](./diagrams/canon-flow.svg)
+
+## For judges — 60 seconds
+
+| | |
+| --- | --- |
+| **The evolved prompt** | [`PROMPT.md`](./PROMPT.md) — append-only typed transactions with explicit `supersedes` edges |
+| **See it decide** | [canon-transactions.vercel.app](https://canon-transactions.vercel.app) — resolve a record set into one current answer |
+| **Reproduce it** | `make test && make demo && make synthetic-stand` |
+| **Evidence** | [`docs/RECEIPTS.md`](./docs/RECEIPTS.md) and [`replay/`](./replay) — the committed event graph |
+| **What changed** | canon comes from lifecycle links and event time, never from retrieval rank |
 
 ## The discovery arc
 
