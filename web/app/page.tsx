@@ -108,7 +108,7 @@ export default function Page() {
         <nav aria-label="Section">
           <a href="#lab">Canon desk</a>
           <a href="#trace">Trace</a>
-          <a href="#repro">Reproduction</a>
+          <a href="#evidence">Evidence boundary</a>
           <a href="#evidence">Evidence</a>
         </nav>
       </header>
@@ -353,15 +353,6 @@ export default function Page() {
               </div>
             </div>
           ) : null}
-        </section>
-
-        <section id="repro" className="repro" aria-labelledby="repro-title">
-          <h2 id="repro-title" className="section-title">Step 5 &middot; Reproduce it in a terminal</h2>
-          <ol className="commands">
-            <li><code>make synthetic-stand</code><span>Replays the pinned four-commit ledger graph in an isolated clone.</span></li>
-            <li><code>make prompt-contract</code><span>Deletes each material prompt rule in turn and requires the contract to fail.</span></li>
-            <li><code>{data ? data.scenario.cli : "node cmd/resolve.mjs"}</code><span>Runs the record set shown above through the same resolver.</span></li>
-          </ol>
         </section>
 
         <section id="evidence" className="evidence" aria-labelledby="evidence-title">
