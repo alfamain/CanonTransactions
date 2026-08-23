@@ -153,177 +153,201 @@ export default function Page() {
           <p className="ornament" aria-hidden="true">&#x2727; &#x2727; &#x2727;</p>
         </section>
 
-        <section id="lab" className="lab" aria-labelledby="lab-title">
-          <h2 id="lab-title" className="section-title">The desk workflow</h2>
+        <section id="lab" className="desk" aria-labelledby="lab-title">
+          <h2 id="lab-title" className="section-title">The canon desk</h2>
+          <p className="desk-intro">
+            One entity, one record set, one current answer. Everything below is a single ledger read left to right:
+            what was filed, what the resolver did with it, and which line is canon right now.
+          </p>
 
-          <div className="columns">
-            <div className="col">
-              <p className="step">Step 1 &middot; Prompt and context</p>
-              <label htmlFor="note">Context note handed to the agent</label>
-              <textarea
-                id="note"
-                value={note}
-                rows={4}
-                onChange={(e) => setNote(e.target.value)}
-                aria-describedby="note-help"
-              />
-              <p id="note-help" className="fine">
-                This text is attached to the last recalled transaction as an untrusted <code>context_note</code> field
-                and scanned by the same resolver. Instruction-like or secret-like text is quarantined and changes the
-                outcome. Ordinary prose does not overrule the committed fixture.
-              </p>
-              <div className="samples">
-                {SAMPLES.map((s, i) => (
-                  <button key={i} type="button" className="ghost" onClick={() => setNote(s)}>
-                    {i === 0 ? "Use a plain note" : "Use an injection-style note"}
+          <div className="deskbar">
+            <div className="deskbar-block">
+              <p className="step">Record set on the desk</p>
+              <div className="segmented" role="group" aria-label="Record set">
+                {EDITIONS.map((e, i) => (
+                  <button
+                    key={e.tag}
+                    type="button"
+                    aria-pressed={i === edition}
+                    className={i === edition ? "seg on" : "seg"}
+                    onClick={() => setEdition(i)}
+                  >
+                    <span className="tag">{e.tag}</span>
+                    <span className="name">{e.name}</span>
+                    <span className="dek">{e.dek}</span>
                   </button>
                 ))}
               </div>
-
-              <p className="step">Step 2 &middot; Scenario</p>
-              <ul className="editions">
-                {EDITIONS.map((e, i) => (
-                  <li key={e.tag}>
-                    <button
-                      type="button"
-                      aria-pressed={i === edition}
-                      className={i === edition ? "edition on" : "edition"}
-                      onClick={() => setEdition(i)}
-                    >
-                      <span className="tag">{e.tag}</span>
-                      <span className="name">{e.name}</span>
-                      <span className="dek">{e.dek}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-
-              <button type="button" className="run" onClick={() => void run(edition, note, true)} disabled={running}>
-                {running ? "Resolving…" : "Run canonical evaluation"}
-              </button>
             </div>
 
-            <div className="col wide">
-              <p className="step">
-                {running
-                  ? "Step 3 · Resolving canon…"
-                  : ranAt
-                    ? `Step 3 · Canonical evaluation · run ${runSeq} · ${ranAt}`
-                    : "Step 3 · Canonical evaluation"}
-              </p>
-              <div
-                ref={verdictRef}
-                className={flash ? "verdict flash" : "verdict"}
-                data-state={data && !notice ? data.state : "none"}
-                aria-live="polite"
-              >
-                {notice ? (
-                  <p className="notice">{notice}</p>
-                ) : data ? (
-                  <>
-                    <div className="verdict-banner" data-state={data.state}>
-                      <p className="stamp">
-                        <span className="rule-mark" aria-hidden="true" />
-                        Run {runSeq} &middot; {ranAt ?? ""}
-                      </p>
-                      <p className="decision">{data.headline}</p>
-                      <p className="meaning">{data.meaning}</p>
-                      <p className="canon-line"><code>CANON: {data.state} &mdash; {data.reason_code}</code></p>
-                    </div>
-
-                    <div className="verdict-body">
-                      <div className="verdict-main">
-                        <p className="route-name">{data.route.route}</p>
-                        <h3>{data.route.label}</h3>
-                        <p>{data.route.summary}</p>
-                        <p className="reading">
-                          {data.state === "resolved"
-                            ? "Canon resolved to a current, evidence-backed record, so downstream work is allowed to rely on this answer."
-                            : "Withholding an answer built on retired or contested records is the intended outcome here: the evolved prompt promotes only current, reconciled canon."}
-                        </p>
-                        <dl className="facts">
-                          <div>
-                            <dt>Canonical state</dt>
-                            <dd><code>CANON: {data.state}</code></dd>
-                          </div>
-                          <div>
-                            <dt>Reason code</dt>
-                            <dd><code>{data.reason_code}</code></dd>
-                          </div>
-                          <div>
-                            <dt>Resolver</dt>
-                            <dd><code>{data.source}</code></dd>
-                          </div>
-                          <div>
-                            <dt>Records in scope</dt>
-                            <dd><code>{data.selected.length ? data.selected.join(", ") : "none current"}</code></dd>
-                          </div>
-                        </dl>
-                        <p className="fine">{data.reason_text}</p>
-                      </div>
-
-                      <aside className="cutting" aria-label="Prompt comparison">
-                        <p className="cutting-head">Two ways to keep the same memory</p>
-                        <div className="cutting-col">
-                          <p className="cutting-tag before">Without the evolved prompt</p>
-                          <p>
-                            Continuity notes pile up as free prose. Contradictory sentences sit side by side in the
-                            same file, and whichever note was written loudest and last is read as the truth.
-                          </p>
-                        </div>
-                        <div className="cutting-col">
-                          <p className="cutting-tag after">With the evolved prompt</p>
-                          <p>
-                            Every change is filed as a canonical transaction against a record. Contradictions are
-                            settled by the committed resolver, and the canon state can be audited line by line.
-                          </p>
-                        </div>
-                      </aside>
-                    </div>
-                  </>
-                ) : (
-                  <p className="fine">Loading the first committed scenario&hellip;</p>
-                )}
+            <div className="deskbar-block">
+              <p className="step">Untrusted context note filed with the last record</p>
+              <label className="sr-only" htmlFor="note">Context note handed to the agent</label>
+              <textarea
+                id="note"
+                value={note}
+                rows={2}
+                onChange={(e) => setNote(e.target.value)}
+                aria-describedby="note-help"
+              />
+              <div className="samples">
+                {SAMPLES.map((s, i) => (
+                  <button key={i} type="button" className="ghost" onClick={() => setNote(s)}>
+                    {i === 0 ? "Plain note" : "Injection-style note"}
+                  </button>
+                ))}
+                <button type="button" className="run" onClick={() => void run(edition, note, true)} disabled={running}>
+                  {running ? "Resolving\u2026" : "Run canonical evaluation"}
+                </button>
               </div>
-
-              {data && !notice ? (
-                <>
-                  <p className="step">Canonical checks, in the order the resolver runs them</p>
-                  <ol className="checks">
-                    {data.checks.map((check, i) => (
-                      <li key={check.id} data-outcome={check.outcome}>
-                        <span className="ck-no">{String(i + 1).padStart(2, "0")}</span>
-                        <span className="ck-rule">{check.rule}</span>
-                        <span className="ck-outcome">{check.outcome}</span>
-                        <span className="ck-detail">{check.detail}</span>
-                      </li>
-                    ))}
-                  </ol>
-                </>
-              ) : null}
-
-              <p className="step" id="trace">Step 4 &middot; Correction timeline and trace</p>
-              {data ? (
-                <>
-                  <ol className="timeline">
-                    {data.timeline.map((row) => (
-                      <li key={row.record_id} className={data.selected.includes(row.record_id) ? "current" : ""}>
-                        <span className="ts">{row.effective_at.replace("T", " ").replace("Z", " UTC")}</span>
-                        <span className="rid"><code>{row.record_id}</code></span>
-                        <span className="st">{row.status}</span>
-                        <span className="sup">{row.supersedes ? `supersedes ${row.supersedes}` : "no lifecycle link"}</span>
-                        {row.carries_note ? <span className="badge">carries your context note</span> : null}
-                      </li>
-                    ))}
-                  </ol>
-                  <p className="fine note-line">
-                    <strong>Your input:</strong> {data.note.statement}
-                    {data.note.supplied ? ` Baseline state without the note: CANON: ${data.note.baseline_state}.` : ""}
-                  </p>
-                </>
-              ) : null}
+              <p id="note-help" className="fine">
+                Filed as an untrusted <code>context_note</code> field and scanned by the same resolver. Instruction-like
+                or secret-like text is quarantined; ordinary prose never overrules the committed fixture.
+              </p>
             </div>
           </div>
+
+          <div
+            ref={verdictRef}
+            className={flash ? "statement flash" : "statement"}
+            data-state={data && !notice ? data.state : "none"}
+            aria-live="polite"
+          >
+            {notice ? (
+              <p className="notice">{notice}</p>
+            ) : data ? (
+              <>
+                <div className="statement-head">
+                  <p className="stamp">
+                    <span className="rule-mark" aria-hidden="true" />
+                    Statement of canon &middot; run {runSeq} &middot; {ranAt ?? ""}
+                  </p>
+                  <p className="decision">{data.headline}</p>
+                  <p className="meaning">{data.meaning}</p>
+                </div>
+                <dl className="statement-facts">
+                  <div>
+                    <dt>Canonical state</dt>
+                    <dd><code>CANON: {data.state}</code></dd>
+                  </div>
+                  <div>
+                    <dt>Reason code</dt>
+                    <dd><code>{data.reason_code}</code></dd>
+                  </div>
+                  <div>
+                    <dt>Canon line</dt>
+                    <dd><code>{data.selected.length ? data.selected.join(", ") : "none current"}</code></dd>
+                  </div>
+                  <div>
+                    <dt>Retired or superseded</dt>
+                    <dd><code>{data.superseded.length ? data.superseded.join(", ") : "none"}</code></dd>
+                  </div>
+                  <div>
+                    <dt>Resolver</dt>
+                    <dd><code>{data.source}</code></dd>
+                  </div>
+                  <div>
+                    <dt>Handling route</dt>
+                    <dd>{data.route.label}</dd>
+                  </div>
+                </dl>
+              </>
+            ) : (
+              <p className="fine">Loading the first committed record set&hellip;</p>
+            )}
+          </div>
+
+          {data && !notice ? (
+            <div className="ledger-wrap" id="trace">
+              <table className="ledger-full">
+                <caption>
+                  The record set as filed &middot; every row is kept, one row is canon
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Record</th>
+                    <th scope="col">Lifecycle</th>
+                    <th scope="col">Event time (UTC)</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Disposition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.timeline.map((row, i) => {
+                    const current = data.selected.includes(row.record_id);
+                    const retired = data.superseded.includes(row.record_id);
+                    const disposition = current ? "canon" : retired ? "retired" : "kept as history";
+                    return (
+                      <tr key={row.record_id} data-disposition={disposition}>
+                        <td className="num">{String(i + 1).padStart(2, "0")}</td>
+                        <td>
+                          <code>{row.record_id}</code>
+                          {row.carries_note ? <span className="badge">carries your note</span> : null}
+                        </td>
+                        <td className="lifecycle">{row.status}</td>
+                        <td className="when">{row.effective_at.replace("T", " ").replace("Z", "")}</td>
+                        <td className="link">{row.supersedes ? <code>{row.supersedes}</code> : <span className="none">&mdash;</span>}</td>
+                        <td className="disp"><span className="disp-chip">{disposition}</span></td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              <p className="fine note-line">
+                <strong>Your input:</strong> {data.note.statement}
+                {data.note.supplied ? ` Baseline state without the note: CANON: ${data.note.baseline_state}.` : ""}
+              </p>
+            </div>
+          ) : null}
+
+          {data && !notice ? (
+            <div className="rail-wrap">
+              <p className="step">Audit rail &middot; the checks in the order the resolver runs them</p>
+              <ol className="rail">
+                {data.checks.map((check, i) => (
+                  <li key={check.id} data-outcome={check.outcome}>
+                    <span className="rl-no">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="rl-outcome">{check.outcome}</span>
+                    <span className="rl-rule">{check.rule}</span>
+                    <span className="rl-detail">{check.detail}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ) : null}
+
+          {data && !notice ? (
+            <div className="reading-band">
+              <div className="reading-main">
+                <p className="route-name">{data.route.route}</p>
+                <h3>{data.route.label}</h3>
+                <p>{data.route.summary}</p>
+                <p className="reading">
+                  {data.state === "resolved"
+                    ? "Canon resolved to a current, evidence-backed record, so downstream work is allowed to rely on this answer."
+                    : "Withholding an answer built on retired or contested records is the intended outcome here: the evolved prompt promotes only current, reconciled canon."}
+                </p>
+                <p className="fine">{data.reason_text}</p>
+              </div>
+              <div className="reading-compare">
+                <div className="cmp before">
+                  <p className="cmp-tag">Without the evolved prompt</p>
+                  <p>
+                    Continuity notes pile up as free prose. Contradictory sentences sit side by side in the same file,
+                    and whichever note was written loudest and last is read as the truth.
+                  </p>
+                </div>
+                <div className="cmp after">
+                  <p className="cmp-tag">With the evolved prompt</p>
+                  <p>
+                    Every change is filed as a canonical transaction against a record. Contradictions are settled by the
+                    committed resolver, and the canon state can be audited line by line.
+                  </p>
+                </div>
+              </div>
+            </div>
+          ) : null}
         </section>
 
         <section id="repro" className="repro" aria-labelledby="repro-title">
