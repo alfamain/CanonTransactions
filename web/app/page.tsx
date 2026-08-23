@@ -356,19 +356,19 @@ export default function Page() {
         </section>
 
         <section id="evidence" className="evidence" aria-labelledby="evidence-title">
-          <h2 id="evidence-title" className="section-title">Step 6 &middot; Evidence layer, kept separate</h2>
+          <h2 id="evidence-title" className="section-title">Reading the ledger beyond this desk</h2>
           <div className="ev-grid">
             <article>
-              <h3>What this page proves</h3>
-              <p>Deterministic resolution of committed fixtures, in the browser, with the canonical resolver and an honest trace.</p>
+              <h3>This desk establishes</h3>
+              <p>One deterministic resolution of the committed record set: the canon, its lifecycle reasoning, and the trace that selected it.</p>
             </article>
             <article>
-              <h3>What it does not prove</h3>
-              <p>Nothing about Mainnet. Terminal receipts and fresh-client cold recalls live in <code>replay/mainnet-receipts.json</code> and are reviewed on their own.</p>
+              <h3>This desk does not establish</h3>
+              <p>It is a browser read over fixtures, not a Mainnet operation. Terminal receipts and cold-client recalls are assessed independently of this rendered ledger.</p>
             </article>
             <article>
-              <h3>Where to look next</h3>
-              <p><code>replay/checkpoints.json</code> for the ten staged checkpoints, <code>PROMPT.md</code> for the agent contract, <code>tests/</code> for the assertions.</p>
+              <h3>Ledger files worth opening</h3>
+              <p>Read <code>replay/checkpoints.json</code> for the staged resolution, <code>replay/mainnet-receipts.json</code> for the receipt record, <code>PROMPT.md</code> for the contract, and <code>tests/</code> for assertions.</p>
             </article>
           </div>
         </section>
