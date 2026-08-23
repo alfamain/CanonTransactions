@@ -13,7 +13,9 @@
 **Deterministic/Mainnet evidence manifest:** [`replay/mainnet-receipts.json`](./replay/mainnet-receipts.json)  
 **Article draft:** [`ARTICLE.md`](./ARTICLE.md)  
 **Source feedback draft:** [`ISSUE.md`](./ISSUE.md)  
-**Video runbook:** [`JUDGE_RECORDING.md`](./JUDGE_RECORDING.md)
+**Video runbook:** [`JUDGE_RECORDING.md`](./JUDGE_RECORDING.md)  
+**Hackathon listing copy:** [`PROJECT_PAGE.md`](./PROJECT_PAGE.md)  
+**Article publication metadata:** [`ARTICLE_META.md`](./ARTICLE_META.md)
 
 ## Evidence boundary
 
