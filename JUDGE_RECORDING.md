@@ -1,11 +1,10 @@
 # Canon Transactions — recording runbook
 
-Record only after the owner has reviewed the final repository. No credentials, no wallet
-material, no live writes on screen.
+Wait for `alfamain` to approve the repository before shooting. Keep credentials,
+wallet material and private paths out of every frame.
 
-**The claim being demonstrated:** append-only memory resolves to exactly one current
-answer, and every superseded record stays readable.
-
+**What the 90 seconds must land:** append-only memory resolves to exactly one
+current answer, and every superseded record stays readable.
 ## Before the camera starts
 
 ```bash
@@ -33,9 +32,9 @@ set and the disposition column both in frame.
 > This resolves committed fixtures in the browser. Mainnet persistence is a separate
 > claim, evidenced only by the terminal receipt rows.
 
-## Check before publishing
+## Final pass before publishing
 
 - [ ] The retired rows stay visible on screen while canon is announced.
-- [ ] The scope-before-lifecycle bug is explained as the reason for the ordering.
+- [ ] The scope-before-lifecycle bug is given as the reason for the ordering.
 - [ ] The receipt file is never described as written during the recording.
-- [ ] No key, token, private path, or personal data is on screen.
+- [ ] No credential, token, private path or personal data appears on screen.
