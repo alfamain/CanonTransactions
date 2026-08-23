@@ -5,7 +5,7 @@
 [![statement](https://img.shields.io/badge/memory-append--only%20ledger-15161a?style=for-the-badge&labelColor=15161a)](./PROMPT.md)
 [![receipts](https://img.shields.io/badge/committed%20receipts-10%20terminal-0f4d3f?style=for-the-badge)](./docs/RECEIPTS.md)
 [![cold recall](https://img.shields.io/badge/fresh%20client%20recalls-5-0f4d3f?style=for-the-badge)](./replay/mainnet-receipts.json)
-[![lab](https://img.shields.io/badge/lab-read--only-a8341f?style=for-the-badge)](https://canon-transactions.vercel.app)
+[![canon desk](https://img.shields.io/badge/canon%20desk-resolve%20a%20record%20set-a8341f?style=for-the-badge)](https://canon-transactions.vercel.app)
 [![tests](https://img.shields.io/github/actions/workflow/status/alfamain/CanonTransactions/tests.yml?branch=main&label=tests&style=for-the-badge)](https://github.com/alfamain/CanonTransactions/actions/workflows/tests.yml)
 
 ![Canon transaction flow](./diagrams/canon-flow.svg)
@@ -97,7 +97,7 @@ audit rail underneath shows the checks in the order the resolver runs them.
 | 02 Retired by revocation | an explicit lifecycle link empties canon | `CANON: revoked — current-event-revoked` |
 | 03 Owner escalation | two current records disagree | escalated to a human with both evidence trails |
 
-The lab is a read-only replay of committed fixtures through the same resolver the CLI uses. No
+The canon desk is a read-only replay of committed fixtures through the same resolver the CLI uses. No
 wallet, no provider key, no storage write, no Mainnet claim.
 
 ## Quick start — reproduce it in a terminal
@@ -170,7 +170,7 @@ to fail: it reports `prompt contract mutations: PASS (5 material rules)`.
 | Unchanged-source comparison | [`replay/source-locked-baseline.json`](./replay/source-locked-baseline.json) | Continuity Keeper revision `522694d…`, file SHA-256 `cff58abe…`, no typed multi-event arbitration contract |
 | Fixed replay graph | [`replay/stands/release-canon-ledger.bundle`](./replay/stands/release-canon-ledger.bundle), [`docs/REPLAY_RECEIPT.md`](./docs/REPLAY_RECEIPT.md) | four immutable commits: claim, correction, revocation, conflict |
 
-The browser lab and the local suite prove policy. The receipt manifest proves persistence. They
+The canon desk and the local suite prove policy. The receipt manifest proves persistence. They
 are reported separately and never merged into one claim.
 
 ## Repository map

@@ -93,7 +93,7 @@ export default function Page() {
 
   return (
     <div className="sheet">
-      <a className="skip" href="#lab">Skip to the resolver lab</a>
+      <a className="skip" href="#lab">Skip to the canon desk</a>
 
       <header className="masthead">
         <div className="nameplate">
@@ -104,9 +104,9 @@ export default function Page() {
             <text x="26" y="42" className="logo-b">TRANSACTIONS</text>
           </svg>
         </div>
-        <p className="dateline">Walrus Sessions 7 &middot; read-only agent lab &middot; append-only memory desk</p>
+        <p className="dateline">Append-only ledger &middot; one canonical current answer &middot; no row is ever edited</p>
         <nav aria-label="Section">
-          <a href="#lab">Resolver lab</a>
+          <a href="#lab">Canon desk</a>
           <a href="#trace">Trace</a>
           <a href="#repro">Reproduction</a>
           <a href="#evidence">Evidence</a>
@@ -147,7 +147,7 @@ export default function Page() {
                 No wallet. No provider key. No storage write. This page replays committed fixtures through
                 <code> cmd/resolve.mjs</code> and makes no Mainnet claim.
               </p>
-              <a className="hero-cta" href="#lab">Read the resolver lab</a>
+              <a className="hero-cta" href="#lab">Open the canon desk</a>
             </div>
           </div>
           <p className="ornament" aria-hidden="true">&#x2727; &#x2727; &#x2727;</p>
@@ -358,9 +358,9 @@ export default function Page() {
         <section id="repro" className="repro" aria-labelledby="repro-title">
           <h2 id="repro-title" className="section-title">Step 5 &middot; Reproduce it in a terminal</h2>
           <ol className="commands">
-            <li><code>make test</code><span>Replays the typed ledger and every lifecycle branch.</span></li>
-            <li><code>make demo</code><span>Prints the same resolutions on the CLI judge path.</span></li>
-            <li><code>{data ? data.scenario.cli : "node cmd/resolve.mjs"}</code><span>Runs the scenario shown above through the same resolver.</span></li>
+            <li><code>make synthetic-stand</code><span>Replays the pinned four-commit ledger graph in an isolated clone.</span></li>
+            <li><code>make prompt-contract</code><span>Deletes each material prompt rule in turn and requires the contract to fail.</span></li>
+            <li><code>{data ? data.scenario.cli : "node cmd/resolve.mjs"}</code><span>Runs the record set shown above through the same resolver.</span></li>
           </ol>
         </section>
 
@@ -384,7 +384,7 @@ export default function Page() {
       </main>
 
       <footer>
-        <p>Canon Transactions &middot; Walrus Sessions 7 &middot; browser interaction is read-only{state ? ` \u00b7 last state: CANON: ${state}` : ""}</p>
+        <p>Every row filed here is kept forever; only the disposition column changes{state ? ` \u00b7 current canon: ${state}` : ""}.</p>
       </footer>
     </div>
   );

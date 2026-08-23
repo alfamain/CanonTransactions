@@ -1,40 +1,41 @@
-# Canon Transactions — judge-first recording script
+# Canon Transactions — recording runbook
 
-> **Record only after the owner has reviewed the final repository.** Use a clean terminal, a clean clone where the script requests one, and no credentials, wallet addresses, private paths, or cost-bearing writes.
+Record only after the owner has reviewed the final repository. No credentials, no wallet
+material, no live writes on screen.
 
-## One sentence
+**The claim being demonstrated:** append-only memory resolves to exactly one current
+answer, and every superseded record stays readable.
 
-Typed transaction lineage makes the current scoped truth explicit rather than relying on recall order.
+## Before the camera starts
 
-## Recording contract
+```bash
+make test
+make synthetic-stand
+```
 
-- Duration target: **85 seconds**.
-- Use the repository’s real read-only commands only. Start with `make test` off-screen or briefly show its PASS summary.
-- Keep the source contract, evolved workflow, CLI assertion, and evidence view in one uninterrupted run.
-- Do not show a blob ID as fresh evidence without a recorded fresh terminal run and independent read.
+Open <https://canon-transactions.vercel.app> scrolled to the canon desk, with the record
+set and the disposition column both in frame.
 
-| Time | Screen / narration |
+## Segments — read the ledger left to right
 
-| 0:00–0:10 | State: “Recall rank is not current truth.” Show the editorial ledger visual. |
-| 0:10–0:24 | Open the [interactive verification lab](https://canon-transactions.vercel.app); open Ledger Wally, enter the transaction context, select a ledger route, and keep its resolver trace visible. |
-| 0:24–0:42 | Run `make demo`; show claim, explicit correction, revocation, and conflict as append-only events. |
-| 0:42–0:55 | Show resolver output: named lifecycle and owner-review routes rather than a guessed current fact. |
-| 0:55–1:08 | Show cross-entity regression: status text cannot supersede a different entity. |
-| 1:08–1:20 | Run `make synthetic-stand`; it replays the committed stand bundle in an isolated local clone. |
-| 1:20–1:30 | Show receipt board as separate committed-manifest evidence. |
+| Time | Screen | Spoken point |
+|---|---|---|
+| 0:00–0:14 | The three filed records | "A claim, a correction that names it, and a revocation that names the correction. All three are still here." |
+| 0:14–0:30 | Press **Run canonical evaluation** | "The statement of canon reads REVOKED, because the current record for this entity was explicitly retired." |
+| 0:30–0:46 | The registry rows and the disposition column | "Nothing was deleted or summarised. Only the disposition changed." |
+| 0:46–1:00 | The audit rail, checks 01–09 | "Lifecycle resolves across the whole candidate set before scope narrows it. That ordering is the fix." |
+| 1:00–1:14 | Type an instruction-shaped note, re-run | "The note is scanned as untrusted content. It changes the intake row and never the canon." |
+| 1:14–1:28 | Terminal: `make demo` | "The same resolutions, printed by `cmd/resolve.mjs` — the resolver the page just called." |
+| 1:28–1:40 | `replay/mainnet-receipts.json` | "Ten terminal receipts, five cold recalls, reviewed on their own." |
 
-## On-screen claim
+## Closing line, mandatory
 
-> The resolver deterministically resolves explicit lifecycle links over a full candidate set before scope selection.
+> This resolves committed fixtures in the browser. Mainnet persistence is a separate
+> claim, evidenced only by the terminal receipt rows.
 
-## Mandatory last line
+## Check before publishing
 
-> Release Canon Ledger replays a fixed append-only decision history and resolves its current state deterministically.
-
-## Recording check
-
-- [ ] The final terminal output contains a deterministic PASS assertion.
-- [ ] The audience can see the source contract, transaction context, and evolved agent workflow.
-- [ ] Synthetic/historical status is named, not implied.
-- [ ] The receipt board is visibly separated from local policy output.
-- [ ] No key, secret, personal data, wallet private material, or live write is shown.
+- [ ] The retired rows stay visible on screen while canon is announced.
+- [ ] The scope-before-lifecycle bug is explained as the reason for the ordering.
+- [ ] The receipt file is never described as written during the recording.
+- [ ] No key, token, private path, or personal data is on screen.
