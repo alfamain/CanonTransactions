@@ -16,6 +16,9 @@ type Result = {
   route: { label: string; route: string; summary: string };
   reason_code: string;
   reason_text: string;
+  headline: string;
+  meaning: string;
+  checks: { id: string; rule: string; detail: string; outcome: string }[];
   selected: string[];
   superseded: string[];
   timeline: Row[];
@@ -208,43 +211,96 @@ export default function Page() {
                     ? `Step 3 · Canonical evaluation · run ${runSeq} · ${ranAt}`
                     : "Step 3 · Canonical evaluation"}
               </p>
-              <div ref={verdictRef} className={flash ? "verdict flash" : "verdict"} aria-live="polite">
+              <div
+                ref={verdictRef}
+                className={flash ? "verdict flash" : "verdict"}
+                data-state={data && !notice ? data.state : "none"}
+                aria-live="polite"
+              >
                 {notice ? (
                   <p className="notice">{notice}</p>
                 ) : data ? (
                   <>
-                    <p className="route-name">{data.route.route}</p>
-                    <h3>{data.route.label}</h3>
-                    <p>{data.route.summary}</p>
-                    <p className="reading">
-                      {data.selected.length
-                        ? "Canon resolved to current records, so downstream work is allowed to rely on this answer."
-                        : "Refusing to answer from stale or contested records is the intended outcome here: the evolved prompt requires current, reconciled canon."}
-                    </p>
-                    <dl className="facts">
-                      <div>
-                        <dt>Canonical state</dt>
-                        <dd><code>CANON: {data.state}</code></dd>
+                    <div className="verdict-banner" data-state={data.state}>
+                      <p className="stamp">
+                        <span className="rule-mark" aria-hidden="true" />
+                        Run {runSeq} &middot; {ranAt ?? ""}
+                      </p>
+                      <p className="decision">{data.headline}</p>
+                      <p className="meaning">{data.meaning}</p>
+                      <p className="canon-line"><code>CANON: {data.state} &mdash; {data.reason_code}</code></p>
+                    </div>
+
+                    <div className="verdict-body">
+                      <div className="verdict-main">
+                        <p className="route-name">{data.route.route}</p>
+                        <h3>{data.route.label}</h3>
+                        <p>{data.route.summary}</p>
+                        <p className="reading">
+                          {data.state === "resolved"
+                            ? "Canon resolved to a current, evidence-backed record, so downstream work is allowed to rely on this answer."
+                            : "Withholding an answer built on retired or contested records is the intended outcome here: the evolved prompt promotes only current, reconciled canon."}
+                        </p>
+                        <dl className="facts">
+                          <div>
+                            <dt>Canonical state</dt>
+                            <dd><code>CANON: {data.state}</code></dd>
+                          </div>
+                          <div>
+                            <dt>Reason code</dt>
+                            <dd><code>{data.reason_code}</code></dd>
+                          </div>
+                          <div>
+                            <dt>Resolver</dt>
+                            <dd><code>{data.source}</code></dd>
+                          </div>
+                          <div>
+                            <dt>Records in scope</dt>
+                            <dd><code>{data.selected.length ? data.selected.join(", ") : "none current"}</code></dd>
+                          </div>
+                        </dl>
+                        <p className="fine">{data.reason_text}</p>
                       </div>
-                      <div>
-                        <dt>Reason code</dt>
-                        <dd><code>{data.reason_code}</code></dd>
-                      </div>
-                      <div>
-                        <dt>Resolver</dt>
-                        <dd><code>{data.source}</code></dd>
-                      </div>
-                      <div>
-                        <dt>Selected records</dt>
-                        <dd><code>{data.selected.length ? data.selected.join(", ") : "none current"}</code></dd>
-                      </div>
-                    </dl>
-                    <p className="fine">{data.reason_text}</p>
+
+                      <aside className="cutting" aria-label="Prompt comparison">
+                        <p className="cutting-head">Two ways to keep the same memory</p>
+                        <div className="cutting-col">
+                          <p className="cutting-tag before">Without the evolved prompt</p>
+                          <p>
+                            Continuity notes pile up as free prose. Contradictory sentences sit side by side in the
+                            same file, and whichever note was written loudest and last is read as the truth.
+                          </p>
+                        </div>
+                        <div className="cutting-col">
+                          <p className="cutting-tag after">With the evolved prompt</p>
+                          <p>
+                            Every change is filed as a canonical transaction against a record. Contradictions are
+                            settled by the committed resolver, and the canon state can be audited line by line.
+                          </p>
+                        </div>
+                      </aside>
+                    </div>
                   </>
                 ) : (
-                  <p className="fine">Loading the first committed scenario…</p>
+                  <p className="fine">Loading the first committed scenario&hellip;</p>
                 )}
               </div>
+
+              {data && !notice ? (
+                <>
+                  <p className="step">Canonical checks, in the order the resolver runs them</p>
+                  <ol className="checks">
+                    {data.checks.map((check, i) => (
+                      <li key={check.id} data-outcome={check.outcome}>
+                        <span className="ck-no">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="ck-rule">{check.rule}</span>
+                        <span className="ck-outcome">{check.outcome}</span>
+                        <span className="ck-detail">{check.detail}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </>
+              ) : null}
 
               <p className="step" id="trace">Step 4 &middot; Correction timeline and trace</p>
               {data ? (

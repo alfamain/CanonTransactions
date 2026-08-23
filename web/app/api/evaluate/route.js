@@ -61,6 +61,56 @@ const REASON = {
   'explicit-conflict': 'Two current transactions disagree and were escalated.'
 };
 
+// Ordered canonical checks, matching the sequence enforced by cmd/resolve.mjs.
+// Each entry names the PROMPT.md rule that governs that step.
+const CHECKS = [
+  { id: 'recall', rule: 'Recall integrity', detail: 'A recalled set exists and can be treated as a candidate set, never as inventory.' },
+  { id: 'quarantine', rule: 'Memory is data, not authority', detail: 'Every string field is scanned for instruction-like or secret-like content before any claim is parsed.' },
+  { id: 'schema', rule: 'Schema completeness', detail: 'Entity key, lifecycle status and a parseable event time are required on every record.' },
+  { id: 'vocabulary', rule: 'Typed lifecycle vocabulary', detail: 'Lifecycle values outside the typed set are refused rather than guessed.' },
+  { id: 'supersession', rule: 'Lifecycle before scope', detail: 'Explicit record-ID supersession and expiry are applied across the whole candidate set first.' },
+  { id: 'scope', rule: 'Current, in-scope selection', detail: 'The current record per entity is chosen by declared event time and scope, not by result order.' },
+  { id: 'revocation', rule: 'Revocation is per entity', detail: 'A retirement empties canon for its own entity only.' },
+  { id: 'conflict', rule: 'Conflict is escalated, not ranked', detail: 'Two viable current records that disagree go to a human owner with both evidence trails.' },
+  { id: 'grounding', rule: 'Evidence-backed canon', detail: 'A record is promoted to canon only with evidence and high confidence.' }
+];
+
+// Which check produced each terminal reason, and the outcome word it carries.
+const TERMINAL = {
+  'recall-integrity-unknown': ['recall', 'held'],
+  'untrusted-memory-content': ['quarantine', 'quarantined'],
+  'invalid-event-schema': ['schema', 'refused'],
+  'invalid-event-status': ['vocabulary', 'refused'],
+  'no-current-evidence': ['scope', 'held'],
+  'current-event-revoked': ['revocation', 'retired'],
+  'explicit-conflict': ['conflict', 'escalated'],
+  'ungrounded-current-evidence': ['grounding', 'held']
+};
+
+const MEANING = {
+  resolved: 'One current record answers the question, and downstream work may rely on it.',
+  revoked: 'A later record retired this fact, so canon is deliberately empty for this entity.',
+  conflict: 'Two current records disagree, so the answer goes to a human owner instead of a guess.',
+  provisional: 'The canon is held back because the evidence for a current answer is not there.'
+};
+
+const HEADLINE = {
+  resolved: 'RESOLVED',
+  revoked: 'RETIRED',
+  conflict: 'ESCALATED',
+  provisional: 'HELD'
+};
+
+function buildChecks(reasonKey) {
+  const terminal = TERMINAL[reasonKey];
+  const stopAt = terminal ? CHECKS.findIndex((c) => c.id === terminal[0]) : -1;
+  return CHECKS.map((check, i) => {
+    if (stopAt === -1 || i < stopAt) return { ...check, outcome: 'pass' };
+    if (i === stopAt) return { ...check, outcome: terminal[1] };
+    return { ...check, outcome: 'not required' };
+  });
+}
+
 const trim = (s) => String(s == null ? '' : s).slice(0, 600);
 
 function evaluate(index, note) {
@@ -91,6 +141,9 @@ function evaluate(index, note) {
     state,
     route: ROUTE[state] || ROUTE.provisional,
     reason_code: reasonKey,
+    headline: HEADLINE[state] || HEADLINE.provisional,
+    meaning: MEANING[state] || MEANING.provisional,
+    checks: buildChecks(withNote.reason || ''),
     reason_text: REASON[reasonKey] || 'One unambiguous current transaction was selected.',
     selected: (withNote.events || []).map((e) => e.record_id || `${e.entity_key}#${e.status}`),
     superseded: annotated.map((e) => e.supersedes).filter(Boolean),
