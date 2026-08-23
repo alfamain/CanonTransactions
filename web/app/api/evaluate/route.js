@@ -162,7 +162,7 @@ function evaluate(index, note) {
           : 'The note was attached and scanned as untrusted content. It contained nothing quarantinable, so the committed fixture still determines this state.'
     },
     source: 'cmd/resolve.mjs',
-    boundary: 'Read-only browser replay of committed fixtures. No wallet, no provider key, no storage write, no Mainnet claim.'
+    boundary: 'The desk resolves a committed ledger snapshot; terminal receipt and cold-recall records remain separately indexed in replay/mainnet-receipts.json.'
   };
 }
 

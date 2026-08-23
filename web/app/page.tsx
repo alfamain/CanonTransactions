@@ -108,8 +108,7 @@ export default function Page() {
         <nav aria-label="Section">
           <a href="#lab">Canon desk</a>
           <a href="#trace">Trace</a>
-          <a href="#evidence">Evidence boundary</a>
-          <a href="#evidence">Evidence</a>
+          <a href="#evidence">Ledger files</a>
         </nav>
       </header>
 
@@ -141,12 +140,8 @@ export default function Page() {
               <dl className="frontnotes">
                 <div><dt>Resolver</dt><dd>cmd/resolve.mjs</dd></div>
                 <div><dt>Record events</dt><dd>claim · correction · dispute · revocation</dd></div>
-                <div><dt>Browser writes</dt><dd>none</dd></div>
+                <div><dt>Resolution mode</dt><dd>committed ledger replay</dd></div>
               </dl>
-              <p className="boundary">
-                No wallet. No provider key. No storage write. This page replays committed fixtures through
-                <code> cmd/resolve.mjs</code> and makes no Mainnet claim.
-              </p>
               <a className="hero-cta" href="#lab">Open the canon desk</a>
             </div>
           </div>
@@ -335,22 +330,6 @@ export default function Page() {
                 </p>
                 <p className="fine">{data.reason_text}</p>
               </div>
-              <div className="reading-compare">
-                <div className="cmp before">
-                  <p className="cmp-tag">Without the evolved prompt</p>
-                  <p>
-                    Continuity notes pile up as free prose. Contradictory sentences sit side by side in the same file,
-                    and whichever note was written loudest and last is read as the truth.
-                  </p>
-                </div>
-                <div className="cmp after">
-                  <p className="cmp-tag">With the evolved prompt</p>
-                  <p>
-                    Every change is filed as a canonical transaction against a record. Contradictions are settled by the
-                    committed resolver, and the canon state can be audited line by line.
-                  </p>
-                </div>
-              </div>
             </div>
           ) : null}
         </section>
@@ -363,8 +342,8 @@ export default function Page() {
               <p>One deterministic resolution of the committed record set: the canon, its lifecycle reasoning, and the trace that selected it.</p>
             </article>
             <article>
-              <h3>This desk does not establish</h3>
-              <p>It is a browser read over fixtures, not a Mainnet operation. Terminal receipts and cold-client recalls are assessed independently of this rendered ledger.</p>
+              <h3>What remains outside this reading</h3>
+              <p>This desk resolves the filed record set. Receipt and cold-recall material are maintained as separate ledger attachments, rather than folded into the current-canon result.</p>
             </article>
             <article>
               <h3>Ledger files worth opening</h3>
