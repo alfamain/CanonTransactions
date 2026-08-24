@@ -93,7 +93,7 @@ export default function Page() {
 
   return (
     <div className="sheet">
-      <a className="skip" href="#lab">Skip to the canon desk</a>
+      <a className="skip" href="#desk">Skip to the canon desk</a>
 
       <header className="masthead">
         <div className="nameplate">
@@ -106,7 +106,7 @@ export default function Page() {
         </div>
         <p className="dateline">Append-only ledger &middot; one canonical current answer &middot; no row is ever edited</p>
         <nav aria-label="Section">
-          <a href="#lab">Canon desk</a>
+          <a href="#desk">Canon desk</a>
           <a href="#trace">Trace</a>
           <a href="#evidence">Ledger files</a>
         </nav>
@@ -142,14 +142,14 @@ export default function Page() {
                 <div><dt>Record events</dt><dd>claim · correction · dispute · revocation</dd></div>
                 <div><dt>Resolution mode</dt><dd>committed ledger replay</dd></div>
               </dl>
-              <a className="hero-cta" href="#lab">Open the canon desk</a>
+              <a className="hero-cta" href="#desk">Open the canon desk</a>
             </div>
           </div>
           <p className="ornament" aria-hidden="true">&#x2727; &#x2727; &#x2727;</p>
         </section>
 
-        <section id="lab" className="desk" aria-labelledby="lab-title">
-          <h2 id="lab-title" className="section-title">The canon desk</h2>
+        <section id="desk" className="desk" aria-labelledby="desk-title">
+          <h2 id="desk-title" className="section-title">The canon desk</h2>
           <p className="desk-intro">
             One entity, one record set, one current answer. Everything below is a single ledger read left to right:
             what was filed, what the resolver did with it, and which line is canon right now.

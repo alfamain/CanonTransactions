@@ -89,7 +89,7 @@ file an untrusted context note with it, and press *Run canonical evaluation*. Th
 canon appears above the ledger; the ledger shows which row is canon and which was retired; the
 audit rail underneath shows the checks in the order the resolver runs them.
 
-![The canon desk resolving a revocation: a RETIRED statement, reason code current-event-revoked, the full record ledger with one retired and one canon row, and the audit rail underneath](./media/lab-verdict.png)
+![The canon desk resolving a revocation: a RETIRED statement, reason code current-event-revoked, the full record ledger with one retired and one canon row, and the audit rail underneath](./media/canon-retired.png)
 
 | Record set | What it tests | Statement |
 |---|---|---|
