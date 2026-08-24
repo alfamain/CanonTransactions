@@ -192,8 +192,7 @@ diagrams/            rendered canon flow
 - **Judges:** open the [desk](https://canon-transactions.vercel.app), run scenario 02, then run `make demo` and compare the two outcomes line for line.
 - **Developers:** read [`PROMPT.md`](./PROMPT.md) beside [`cmd/resolve.mjs`](./cmd/resolve.mjs); every prompt rule has a line of code and a test behind it.
 - **Operators:** the reason-code register above is the whole contract your on-call needs.
-- **Readers:** [`ARTICLE.md`](./ARTICLE.md) is the story of the failure and the evolution.
-- **Recording:** [`JUDGE_RECORDING.md`](./JUDGE_RECORDING.md) is the 85–90 second CLI-first runbook.
+- **Reproducing:** [`DEMO.md`](./DEMO.md) is the CLI-first walkthrough of the same resolutions.
 
 An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-keeper).
 
