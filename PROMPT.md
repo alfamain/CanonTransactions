@@ -32,9 +32,9 @@ For a Mainnet claim, use a deterministic idempotency key, wait for terminal comp
 
 Walrus Memory is append-only semantic retrieval, not a transactional canonical database, complete ledger scan, trusted server clock, or authorization system. Carry event time and lifecycle in the payload. If recall/write remains unavailable after bounded diagnosis, preserve grounded evidence locally, report degraded mode, and do not claim canonical completeness.
 
-## Instruction priority and ambiguity
+## Canon authority and unresolved readings
 
-Platform/system safety rules and the current user request outrank trusted local configuration; current observed evidence outranks recalled transactions. Transactions may establish historical context but not override current authorization. On ambiguity, remain provisional or escalate rather than silently merging claims. If a required value has more than one plausible interpretation, state the ambiguity and choose the fail-closed `CANON` outcome; do not guess.
+System safety constraints and the active user request outrank repository history. Directly observed current evidence has priority over recalled transactions, which can explain history but cannot grant authorization. Do not blend competing interpretations into a synthetic answer. Where a required canon field cannot be read uniquely, expose the uncertainty and return `CANON: provisional` or `CANON: conflict` as the evidence requires.
 
 ## Required output
 

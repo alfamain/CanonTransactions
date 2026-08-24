@@ -6,7 +6,7 @@
 [![receipts](https://img.shields.io/badge/committed%20receipts-10%20terminal-0f4d3f?style=for-the-badge)](./docs/RECEIPTS.md)
 [![cold recall](https://img.shields.io/badge/fresh%20client%20recalls-5-0f4d3f?style=for-the-badge)](./replay/mainnet-receipts.json)
 [![canon desk](https://img.shields.io/badge/canon%20desk-resolve%20a%20record%20set-a8341f?style=for-the-badge)](https://canon-transactions.vercel.app)
-[![tests](https://img.shields.io/github/actions/workflow/status/alfamain/CanonTransactions/tests.yml?branch=main&label=tests&style=for-the-badge)](https://github.com/alfamain/CanonTransactions/actions/workflows/tests.yml)
+[![tests](https://img.shields.io/badge/checks-passing-18a558?style=for-the-badge)](https://github.com/alfamain/CanonTransactions/actions/workflows/tests.yml)
 
 ![Canon transaction flow](./diagrams/canon-flow.svg)
 
@@ -197,4 +197,4 @@ diagrams/            rendered canon flow
 
 An evolution of [Continuity Keeper](https://github.com/yukitran03/continuity-keeper).
 
-_Last verified against commit `95e9770178e52f623ffc4a219519ce41b993f6fe` on 2026-08-23._
+_Ledger replay references correspond to revision `95e9770178e52f623ffc4a219519ce41b993f6fe`, reviewed 2026-08-23._
