@@ -2,11 +2,11 @@
 
 Append-only memory is very good at keeping everything. It has no opinion at all about which of the things it kept is currently true.
 
-An agent I use for release chores kept continuity notes in memory — short prose entries about what we were shipping, what got postponed, who signed off. In the middle of August it recalled one and quoted it back with complete confidence. The release target, it said, was the branch named in the note.
+An agent I use for release chores kept continuity notes in memory — short prose entries about what we were shipping, what got postponed, who signed off. It recalled one and quoted it back with complete confidence. The release target, it said, was the branch named in the note.
 
 That was a real note. I had written the underlying decision myself.
 
-It was also wrong. Two days later we had changed the target, and the day after that we had withdrawn the plan entirely. All three statements were sitting in memory. Nothing was corrupted, nothing was lost. Recall returned the entry most similar to my question, and the entry most similar to my question happened to be the oldest and the most quotable — written while we were still excited about the plan. The later entries were hedged and shorter, so they ranked lower.
+It was also wrong. We had changed the target after that, and later withdrawn the plan entirely. All three statements were sitting in memory. Nothing was corrupted, nothing was lost. Recall returned the entry most similar to my question, and the entry most similar to my question happened to be the oldest and the most quotable — written while we were still excited about the plan. The later entries were hedged and shorter, so they ranked lower.
 
 What follows is the ledger that replaced those notes, read in the order the resolver reads it.
 
