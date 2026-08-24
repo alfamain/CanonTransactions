@@ -5,7 +5,7 @@
   "stand_bundle": "replay/stands/release-canon-ledger.bundle",
   "stand_bundle_sha256": "e1c73476814145a31dd7ac43c02a1a323e0e62fa1f1fcd6aeac1115015a5ff0e",
   "author": "Alfa Main <alfakalor.com@gmail.com>",
-  "prompt_sha256": "7c3e8ed5ff4acea3bad1f50b68fd8960db33418597ef511d4b8a8755fcfb3930",
+  "prompt_sha256": "701d5a5ce4ab4eb9768fbc3959af32acabb4bd92106da4263a439e781a02a051",
   "selection_rule": "Replay the complete four-commit synthetic release ledger in chronological order; each event has an immutable record_id and explicitly supersedes the prior event.",
   "chain": [
     {
