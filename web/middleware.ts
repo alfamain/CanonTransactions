@@ -1,24 +1,28 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// One address for one page.
-// Vercel also serves this deployment on generated hosts such as
-// <project>-<account>.vercel.app and <project>-git-<branch>-<account>.vercel.app.
-// Those return the identical document, which splits inbound links and lets a
-// reader cite a URL that is not the one referenced in the repository.
-// Any non-canonical host is answered with a permanent redirect instead.
-const CANONICAL_HOST = "canon-transactions.vercel.app";
+// The canon desk answers on exactly one hostname.
+// Vercel additionally exposes preview and account-scoped hosts that serve the
+// same document; a reader who cites one of those is citing an address the
+// ledger does not reference. Everything outside the allow list is redirected.
+const DESK_HOST = "canon-transactions.vercel.app";
+const LOCAL_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0"];
+
+function isAllowed(host: string | null): boolean {
+  if (!host) return true;
+  const name = host.split(":")[0];
+  return name === DESK_HOST || LOCAL_HOSTS.includes(name);
+}
 
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host");
-  if (!host || host === CANONICAL_HOST || host.startsWith("localhost") || host.startsWith("127.0.0.1")) {
+  if (isAllowed(request.headers.get("host"))) {
     return NextResponse.next();
   }
-  const target = new URL(request.nextUrl.toString());
-  target.host = CANONICAL_HOST;
-  target.protocol = "https:";
-  target.port = "";
-  return NextResponse.redirect(target, 308);
+  const desk = new URL(request.nextUrl.toString());
+  desk.protocol = "https:";
+  desk.host = DESK_HOST;
+  desk.port = "";
+  return NextResponse.redirect(desk, 308);
 }
 
 export const config = {

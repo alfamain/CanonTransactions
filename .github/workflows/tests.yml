@@ -4,12 +4,28 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+
+concurrency:
+  group: ledger-tests-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
+  ledger:
+    name: ledger suite
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: make test
+          node-version: 20.17.0
+      - name: Prompt contract
+        run: node tests/prompt-contract.test.mjs
+      - name: Replay and synthetic stand
+        run: |
+          node tests/replay.test.mjs
+          node tests/synthetic-stand.test.mjs
+      - name: Evidence and secrets
+        run: |
+          node scripts/check-evidence.mjs replay/mainnet-receipts.json replay/checkpoints.json
+          node scripts/secret-scan.mjs

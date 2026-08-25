@@ -2,19 +2,29 @@ name: deterministic-checks
 on:
   push:
     branches: [main]
+    paths:
+      - 'web/**'
+      - '.github/workflows/ci.yml'
   pull_request:
+    paths:
+      - 'web/**'
+      - '.github/workflows/ci.yml'
 
 jobs:
-  verify:
+  desk:
+    name: canon desk build
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 20.17.0
           cache: npm
           cache-dependency-path: web/package-lock.json
-      - run: make test
-      - run: npm --prefix web ci --ignore-scripts
-      - run: npm --prefix web run typecheck
-      - run: npm --prefix web run build
+      - run: npm ci --ignore-scripts
+      - run: npm run typecheck
+      - run: npm run build
